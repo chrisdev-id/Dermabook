@@ -1,19 +1,20 @@
 # Arsitektur Dermabook.id
 
 Dermabook.id adalah **situs statis** yang dibangun dari konten berbentuk file. Tidak ada backend, database, login,
-atau cron di server. Semua proses berat (validasi, build, cek recall) berjalan di GitHub Actions.
+atau cron di server. Validasi dan cek recall berjalan di GitHub Actions; build dan hosting di Vercel.
 
 ```
  Kontributor ──PR──▶ Repositori GitHub (kode + content/ + public/models/)
                            │
-                     GitHub Actions
-       ┌───────────────────┼──────────────────────────────┐
-       │ Saat PR:          │ Saat merge ke main:          │ Mingguan:
-       │ validasi skema    │ build situs statis           │ cek recall openFDA
-       │ cek PubMed        │ + indeks pencarian           │ → buat issue bila ada
-       │ cek openFDA       │ unggah via FTPS ─────────────┼──▶ Hosting
-       │ cek mesh 3D       │                              │   (file statis + .htaccess)
-       └───────────────────┴──────────────────────────────┘
+             ┌─────────────┴──────────────┐
+       GitHub Actions                    Vercel
+ ┌──────────────────────────┐   ┌───────────────────────────────┐
+ │ Saat PR dan push main:   │   │ Saat PR: build + URL preview  │
+ │ validasi skema, cek      │   │ Saat push main: build situs   │
+ │ PubMed, openFDA, mesh 3D │   │ statis + indeks pencarian,    │
+ │ Mingguan: cek recall     │   │ terbit di CDN (HTTPS)         │
+ │ openFDA → buat issue     │   └───────────────────────────────┘
+ └──────────────────────────┘
 ```
 
 ## Teknologi
@@ -46,8 +47,9 @@ src/
   lib/viewer/            Viewer 3D (lapisan, preset kamera, zona, adegan)
 scripts/                 Verifikasi PubMed/openFDA/mesh dan pembangun model
 assets-src/              Skrip ekspor Blender + manifest mesh (file .blend tidak disimpan di repo)
-public/                  Aset statis: model GLB, decoder Draco, .htaccess, gambar
-.github/                 CI: validasi PR, deploy FTPS, cek recall mingguan
+public/                  Aset statis: model GLB, decoder Draco, gambar
+.github/                 CI: validasi PR dan main, cek recall mingguan
+vercel.json              Konfigurasi Vercel: build, header keamanan (CSP), cache
 docs/                    Dokumentasi
 ```
 
@@ -83,11 +85,17 @@ Prosedur memiliki beberapa bagian:
 
 ## Hosting
 
-Cukup hosting yang bisa melayani file statis dan membaca `.htaccess` (PHP tidak diperlukan):
+Situs di-hosting di Vercel sebagai situs statis:
 
-- Akses FTPS atau SFTP untuk deploy otomatis, dan SSL.
-- Modul `mod_rewrite`, `mod_headers`, `mod_mime`, `mod_deflate`, `mod_expires`.
-- `public/.htaccess` sudah mengatur tipe MIME GLB/WASM, cache, kompresi, HSTS, dan CSP.
+- Vercel terhubung ke repositori GitHub. Push ke `main` menerbitkan versi produksi, dan setiap *pull request*
+  mendapat URL preview untuk ditinjau sebelum digabung.
+- `vercel.json` mengatur perintah build (`npm run build`, termasuk indeks Pagefind), folder hasil (`dist`),
+  garis miring di akhir URL, header keamanan (CSP dan lainnya; HSTS dipasang otomatis oleh Vercel), tipe file GLB, serta cache aset.
+- Halaman 404 memakai `dist/404.html` yang dibuat Astro.
 
-Secret repositori untuk deploy: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_SERVER_DIR`. Opsional:
-`NCBI_API_KEY`, `OPENFDA_API_KEY`, dan variable `NCBI_EMAIL`.
+Validasi isi (PubMed, openFDA, mesh 3D) tidak dijalankan di Vercel, melainkan di GitHub Actions. Karena itu
+perubahan konten sebaiknya selalu lewat *pull request* agar dicek sebelum masuk ke `main`. Secret opsional di
+GitHub: `NCBI_API_KEY`, `OPENFDA_API_KEY`, dan variable `NCBI_EMAIL`.
+
+Situs ini tetap bisa dipindah ke hosting statis lain (Cloudflare Pages, Netlify, atau shared hosting) karena hasil
+build hanyalah file di folder `dist/`. Header di `vercel.json` perlu diterjemahkan ke format hosting tujuan.

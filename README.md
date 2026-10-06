@@ -45,8 +45,9 @@ src/
   content.config.ts Skema & aturan validasi konten
   pages/ layouts/ components/
 scripts/            Skrip verifikasi PubMed/openFDA
-public/             Aset statis (.htaccess, model 3D)
-.github/            CI: validasi PR, deploy FTP, cek recall mingguan
+public/             Aset statis (model 3D, decoder Draco, gambar)
+.github/            CI: validasi PR dan main, cek recall mingguan
+vercel.json         Konfigurasi hosting Vercel (header keamanan, cache)
 ```
 
 ## Berkontribusi
@@ -62,8 +63,10 @@ Aturan sumber dan penulisan ada di [docs/SOURCES.md](docs/SOURCES.md).
 
 ## Deploy
 
-Setiap push ke `main` menjalankan validasi, build, lalu mengunggah `dist/` ke hosting via FTPS.
-Atur secret repositori berikut: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_SERVER_DIR` (mis. `public_html/`).
+Situs di-hosting di [Vercel](https://vercel.com). Setiap push ke `main` otomatis dibangun dan diterbitkan, dan setiap
+*pull request* mendapat alamat preview sendiri. Pengaturan build dan header ada di `vercel.json`.
+
+GitHub Actions tetap memvalidasi konten (skema, PubMed, openFDA, mesh 3D) di setiap PR dan push ke `main`.
 Secret opsional: `NCBI_API_KEY`, `OPENFDA_API_KEY`, dan variable `NCBI_EMAIL`.
 
 ## Lisensi
