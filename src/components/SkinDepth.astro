@@ -1,0 +1,29 @@
+---
+// Diagram ilustratif lapisan kulit: lapisan yang dicapai sebuah teknologi atau perawatan disorot.
+import Icon from './Icon.astro';
+import { skinDepths } from '../lib/taxonomy';
+import { depthLabel } from '../lib/site';
+
+interface Props {
+  depths: readonly string[];
+  caption?: string;
+}
+const { depths, caption = 'Lapisan kulit yang dicapai (ilustrasi)' } = Astro.props;
+---
+<figure class="panel p-5">
+  <figcaption class="text-sm font-medium text-muted">{caption}</figcaption>
+  <ol class="mt-4 overflow-hidden rounded-xl">
+    {skinDepths.map((layer, i) => {
+      const hit = depths.includes(layer);
+      return (
+        <li
+          class:list={['flex items-center justify-between gap-3 px-4 text-sm', hit ? 'font-semibold' : 'text-muted']}
+          style={`height:${2.25 + i * 0.35}rem;background:${hit ? `color-mix(in oklab, var(--brand) ${34 - i * 4}%, var(--bg))` : `color-mix(in oklab, var(--line) ${60 + i * 8}%, var(--bg))`}`}
+        >
+          <span>{depthLabel[layer]}</span>
+          {hit && <Icon name="check-circle" size={18} weight="fill" class="text-brand-ink" label="dicapai" />}
+        </li>
+      );
+    })}
+  </ol>
+</figure>

@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { SITE_NAME } from '../lib/site';
+import { skinDepths } from '../lib/taxonomy';
+import { depthLabel } from '../lib/site';
+
+const [categories, devices, references, structures, zones, procedures] = await Promise.all([
+  getCollection('tech-categories'),
+  getCollection('devices'),
+  getCollection('references'),
+  getCollection('structures'),
+  getCollection('danger-zones'),
+  getCollection('procedures'),
+]);
+const pubmed = references.filter((r) => r.data.type === 'pubmed').length;
+const sorted = procedures.filter((p) => p.data.kind === 'tindakan').sort((a, b) => a.data.order - b.data.order);
+const picoDepths = categories.find((c) => c.id === 'laser-picosecond')?.data.depths ?? [];
+
+const stats = [
+  { value: structures.length, label: 'struktur anatomi, masing-masing dengan sumber' },
+  { value: pubmed, label: 'referensi PubMed yang dicek otomatis' },
+  { value: devices.length, label: 'alat dengan indikasi resmi FDA 510(k)' },
+  { value: zones.length, label: 'zona bahaya vaskular di model 3D' },
+];
+---
+<Base title={SITE_NAME} width="wide" description="Anatomi wajah 3D berlapis, materi prosedur estetika, dan katalog teknologi untuk dokter. Setiap informasi punya sumber yang bisa dicek.">
+  <!-- Hero: teks kiri, visual model 3D di kanan -->
+  <section class="grid items-center gap-10 pt-2 md:grid-cols-[1.05fr_1fr] md:gap-6 lg:pt-6">
+    <div class="max-w-[34rem]">
+      <h1 class="text-[2.5rem] font-bold leading-[1.08] tracking-[-0.03em] sm:text-5xl lg:text-[3.5rem]">
+        Anatomi wajah, lapis demi lapis.
+      </h1>
+      <p class="lede mt-5">
+        Anatomi wajah 3D, materi prosedur, dan katalog teknologi estetika untuk dokter. Setiap informasi punya sumber yang bisa Anda cek sendiri.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a href="/atlas/" class="btn btn-primary">
+          Buka Anatomi Wajah 3D <Icon name="arrow-right" size={18} weight="bold" />
+        </a>
+        <a href="/prosedur/" class="inline-flex items-center gap-1.5 font-semibold no-underline">
+          Lihat materi prosedur <Icon name="arrow-up-right" size={16} weight="bold" />
+        </a>
+      </div>
+    </div>
+
+    <div class="relative isolate">
+      <div
+        class="absolute inset-x-6 inset-y-8 -z-10 rounded-[28px] md:inset-x-0"
+        style="background: radial-gradient(120% 90% at 70% 35%, color-mix(in oklab, var(--brand) 22%, var(--bg)) 0%, var(--brand-soft) 55%, var(--bg) 100%);"
+        aria-hidden="true"
+      ></div>
+      <img
+        src="/images/hero-atlas.webp"
+        width="1000"
+        height="1060"
+        alt="Model 3D kepala: separuh wajah berkulit, separuh lainnya memperlihatkan otot ekspresi, arteri, vena, saraf facialis, dan kelenjar parotis."
+        class="mx-auto aspect-[1/1] w-full max-w-[520px] object-cover object-[50%_72%]"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <!-- Angka nyata dari isi repositori -->
+  <section class="mt-16 grid grid-cols-2 gap-y-8 border-y border-line py-8 md:grid-cols-4 md:divide-x md:divide-line" aria-label="Isi saat ini">
+    {stats.map((s) => (
+      <div class="px-1 md:px-6 md:first:pl-0">
+        <p class="tabular text-4xl font-bold tracking-tight text-brand">{s.value}</p>
+        <p class="mt-1 max-w-[22ch] text-sm text-muted">{s.label}</p>
+      </div>
+    ))}
+  </section>
+
+  <!-- Empat area utama, komposisi bento asimetris -->
+  <section class="mt-20" aria-labelledby="area-h">
+    <h2 id="area-h" class="max-w-[24ch] text-3xl font-bold tracking-tight">Satu tempat untuk belajar dan menjelaskan.</h2>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-6 md:grid-rows-[auto_auto]">
+      <a href="/atlas/" class="tile-link group relative overflow-hidden bg-brand-soft p-7 md:col-span-4 md:row-span-2">
+        <div class="relative z-10 max-w-[30ch]">
+          <Icon name="cube-transparent" size={28} class="text-brand" />
+          <h3 class="mt-4 text-2xl font-bold tracking-tight">Anatomi Wajah 3D</h3>
+          <p class="mt-2 text-muted">
+            Buka lapisan wajah satu per satu: kulit, lemak, SMAS, otot, ligamen, tulang, pembuluh darah, dan saraf.
+          </p>
+          <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-brand-ink">
+            {structures.length} struktur <Icon name="arrow-right" size={16} weight="bold" class="transition-transform duration-200 group-hover:translate-x-1" />
+          </span>
+        </div>
+        <img
+          src="/images/hero-atlas.webp"
+          alt=""
+          width="1000"
+          height="1060"
+          loading="lazy"
+          decoding="async"
+          class="pointer-events-none absolute -bottom-10 -right-6 hidden w-[320px] opacity-95 md:block lg:w-[360px]"
+        />
+      </a>
+
+      <a href="/prosedur/" class="tile-link group bg-surface p-7 md:col-span-2">
+        <Icon name="presentation" size={28} class="text-brand" />
+        <h3 class="mt-4 text-xl font-bold tracking-tight">Prosedur & presentasi</h3>
+        <p class="mt-2 text-sm text-muted">
+          {sorted.map((p) => p.data.title.split(' (')[0]).join(', ')}. Lengkap dengan mode presentasi dan QR untuk pasien.
+        </p>
+      </a>
+
+      <a href="/teknologi/" class="tile-link group bg-surface p-7 md:col-span-2">
+        <Icon name="lightning" size={28} class="text-brand" />
+        <h3 class="mt-4 text-xl font-bold tracking-tight">Teknologi estetika</h3>
+        <p class="mt-2 text-sm text-muted">{categories.length} jenis teknologi: sasarannya, kedalamannya, dan cara kerjanya.</p>
+        <ul class="mt-4 space-y-1" aria-label="Contoh: lapisan kulit yang dicapai laser picosecond">
+          {skinDepths.map((d, i) => (
+            <li class="flex items-center gap-2 text-xs">
+              <span
+                class:list={['h-2 rounded-sm', picoDepths.includes(d) ? 'bg-brand' : 'bg-line']}
+                style={`width:${100 - i * 12}%`}
+              ></span>
+              <span class="shrink-0 text-muted">{depthLabel[d]}</span>
+            </li>
+          ))}
+        </ul>
+      </a>
+    </div>
+
+    <a href="/alat/" class="tile-link group mt-4 flex flex-wrap items-center justify-between gap-4 bg-surface px-7 py-6">
+      <div class="flex items-center gap-4">
+        <Icon name="first-aid-kit" size={28} class="text-brand" />
+        <div>
+          <h3 class="text-xl font-bold tracking-tight">Katalog alat</h3>
+          <p class="text-sm text-muted">{devices.length} alat, masing-masing dengan teks asli indikasi dari FDA.</p>
+        </div>
+      </div>
+      <span class="inline-flex items-center gap-1.5 font-semibold text-brand-ink">
+        Telusuri katalog <Icon name="arrow-right" size={16} weight="bold" class="transition-transform duration-200 group-hover:translate-x-1" />
+      </span>
+    </a>
+  </section>
+
+  <!-- Batas aplikasi: alasan dokter bisa memakainya dengan tenang -->
+  <section class="mt-24 grid gap-10 md:grid-cols-[1fr_1.2fr]" aria-labelledby="batas-h">
+    <div>
+      <h2 id="batas-h" class="max-w-[20ch] text-3xl font-bold tracking-tight">Dibuat untuk belajar, bukan untuk memutuskan.</h2>
+      <p class="mt-4 max-w-[52ch] text-muted">
+        Dermabook.id tidak mengolah data pasien dan tidak memberi saran untuk pasien tertentu. Semua konten berstatus
+        draf sampai ditinjau dokter, dan statusnya selalu tampil di setiap halaman.
+      </p>
+      <a href="/tentang/" class="mt-6 inline-flex items-center gap-1.5 font-semibold no-underline">
+        Tujuan dan batas penggunaan <Icon name="arrow-right" size={16} weight="bold" />
+      </a>
+    </div>
+    <ul class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <li class="flex gap-3">
+        <Icon name="seal-check" size={24} class="mt-0.5 shrink-0 text-brand" />
+        <div><p class="font-semibold">Bersumber</p><p class="mt-1 text-sm text-muted">Konten tanpa referensi tidak bisa terbit.</p></div>
+      </li>
+      <li class="flex gap-3">
+        <Icon name="shield-check" size={24} class="mt-0.5 shrink-0 text-brand" />
+        <div><p class="font-semibold">Tanpa data pasien</p><p class="mt-1 text-sm text-muted">Tidak ada akun, unggah foto, atau pelacak.</p></div>
+      </li>
+      <li class="flex gap-3">
+        <Icon name="syringe" size={24} class="mt-0.5 shrink-0 text-brand" />
+        <div><p class="font-semibold">Tanpa dosis</p><p class="mt-1 text-sm text-muted">Komplikasi dijelaskan secara naratif, dengan rujukan ke pedoman resmi.</p></div>
+      </li>
+      <li class="flex gap-3">
+        <Icon name="github-logo" size={24} class="mt-0.5 shrink-0 text-brand" />
+        <div><p class="font-semibold">Terbuka</p><p class="mt-1 text-sm text-muted">Kode MIT, konten CC BY-SA. Siapa pun bisa mengusulkan koreksi lewat GitHub.</p></div>
+      </li>
+    </ul>
+  </section>
+</Base>

@@ -1,0 +1,52 @@
+{
+ "lemak-superfisial": [
+  "lemak-superfisial__dahi-sentral",
+  "lemak-superfisial__dahi-tengah-l",
+  "lemak-superfisial__dahi-tengah-r",
+  "lemak-superfisial__lateral-temporal-pipi-l",
+  "lemak-superfisial__lateral-temporal-pipi-r",
+  "lemak-superfisial__orbital-superior-l",
+  "lemak-superfisial__orbital-superior-r",
+  "lemak-superfisial__orbital-inferior-l",
+  "lemak-superfisial__orbital-inferior-r",
+  "lemak-superfisial__orbital-lateral-l",
+  "lemak-superfisial__orbital-lateral-r",
+  "lemak-superfisial__nasolabial-l",
+  "lemak-superfisial__nasolabial-r",
+  "lemak-superfisial__pipi-medial-l",
+  "lemak-superfisial__pipi-medial-r",
+  "lemak-superfisial__pipi-tengah-l",
+  "lemak-superfisial__pipi-tengah-r",
+  "lemak-superfisial__jowl-l",
+  "lemak-superfisial__jowl-r",
+  "lemak-superfisial__mental"
+ ],
+ "lemak-dalam": [
+  "lemak-dalam__soof-medial-l",
+  "lemak-dalam__soof-medial-r",
+  "lemak-dalam__soof-lateral-l",
+  "lemak-dalam__soof-lateral-r",
+  "lemak-dalam__pipi-medial-dalam-medial-l",
+  "lemak-dalam__pipi-medial-dalam-medial-r",
+  "lemak-dalam__pipi-medial-dalam-lateral-l",
+  "lemak-dalam__pipi-medial-dalam-lateral-r",
+  "lemak-dalam__roof-l",
+  "lemak-dalam__roof-r",
+  "lemak-dalam__bantalan-lemak-bukal-l",
+  "lemak-dalam__bantalan-lemak-bukal-r"
+ ],
+ "ligamen": [
+  "ligamen__ligamen-retensi-orbital-l",
+  "ligamen__ligamen-zigomatikokutan-l",
+  "ligamen__ligamen-mandibula-l",
+  "ligamen__ligamen-maseterik-l",
+  "ligamen__ligamen-retensi-orbital-r",
+  "ligamen__ligamen-zigomatikokutan-r",
+  "ligamen__ligamen-mandibula-r",
+  "ligamen__ligamen-maseterik-r"
+ ],
+ "smas": [
+  "smas__smas-l",
+  "smas__smas-r"
+ ]
+}

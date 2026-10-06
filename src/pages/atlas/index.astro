@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import AnatomyViewer from '../../components/viewer/AnatomyViewer.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import Icon from '../../components/Icon.astro';
+---
+<Base title="Anatomi Wajah 3D" width="wide" description="Model 3D anatomi wajah berlapis: kulit, otot, tulang, pembuluh darah, saraf, kelenjar, dan zona bahaya.">
+  <div class="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+    <div>
+      <h1 class="page-title">Anatomi Wajah 3D</h1>
+      <p class="mt-2 max-w-[62ch] text-muted">
+        Putar, perbesar, dan buka lapisan wajah satu per satu. Klik sebuah struktur untuk membaca penjelasannya.
+        Kompartemen lemak, SMAS, dan ligamen berupa ilustrasi skematik yang disusun dari literatur.
+      </p>
+    </div>
+    <div class="no-print flex flex-wrap items-center gap-2">
+      <StatusBadge status="draft" />
+      <a href="/atlas/struktur/" class="btn btn-quiet btn-sm"><Icon name="list-bullets" size={16} /> Daftar struktur</a>
+      <a href="/atlas/zona-bahaya/" class="btn btn-quiet btn-sm"><Icon name="warning-octagon" size={16} /> Zona bahaya</a>
+    </div>
+  </div>
+  <div class="mt-6">
+    <AnatomyViewer />
+  </div>
+</Base>

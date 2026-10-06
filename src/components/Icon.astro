@@ -1,0 +1,26 @@
+---
+// Ikon dari Phosphor Icons (MIT, @phosphor-icons/core), ditanam sebagai SVG inline.
+// Satu keluarga ikon untuk seluruh situs; bobot default "regular".
+interface Props {
+  name: string;
+  size?: number;
+  weight?: 'regular' | 'bold' | 'fill';
+  class?: string;
+  label?: string; // isi bila ikon bermakna dan tidak didampingi teks
+}
+
+const sets = {
+  regular: import.meta.glob('/node_modules/@phosphor-icons/core/assets/regular/*.svg', { query: '?raw', import: 'default', eager: true }),
+  bold: import.meta.glob('/node_modules/@phosphor-icons/core/assets/bold/*.svg', { query: '?raw', import: 'default', eager: true }),
+  fill: import.meta.glob('/node_modules/@phosphor-icons/core/assets/fill/*.svg', { query: '?raw', import: 'default', eager: true }),
+} as Record<string, Record<string, string>>;
+
+const { name, size = 20, weight = 'regular', class: className, label } = Astro.props;
+const suffix = weight === 'regular' ? '' : `-${weight}`;
+const key = `/node_modules/@phosphor-icons/core/assets/${weight}/${name}${suffix}.svg`;
+const raw = sets[weight][key];
+if (!raw) throw new Error(`Ikon Phosphor tidak ditemukan: ${name} (${weight})`);
+const svg = raw
+  .replace('<svg ', `<svg width="${size}" height="${size}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"'} class="${className ?? ''}" `);
+---
+<Fragment set:html={svg} />

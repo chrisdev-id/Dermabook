@@ -1,0 +1,18 @@
+---
+// Logo Dermabook.id: monogram "D" + wordmark. Monogram sama dengan public/favicon.svg.
+interface Props {
+  size?: 'sm' | 'md';
+}
+const { size = 'md' } = Astro.props;
+const mark = size === 'sm' ? 26 : 30;
+---
+<span class="inline-flex items-center gap-2.5">
+  <svg width={mark} height={mark} viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+    <rect width="32" height="32" rx="8" fill="var(--brand)"></rect>
+    <path d="M10 8.5h6.2c5 0 8.3 3 8.3 7.5s-3.3 7.5-8.3 7.5H10z" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round"></path>
+    <circle cx="25.4" cy="25.4" r="2.4" fill="var(--accent)"></circle>
+  </svg>
+  <span class:list={['font-bold tracking-tight text-ink', size === 'sm' ? 'text-base' : 'text-lg']}>
+    Dermabook<span class="text-accent">.id</span>
+  </span>
+</span>

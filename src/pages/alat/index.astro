@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { concernLabel } from '../../lib/site';
+import { skinConcerns } from '../../lib/taxonomy';
+
+const devices = (await getCollection('devices')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const categories = (await getCollection('tech-categories')).sort((a, b) => a.data.order - b.data.order);
+const catName = Object.fromEntries(categories.map((c) => [c.id, c.data.name]));
+---
+<Base title="Katalog alat" description="Alat estetika berbasis energi beserta jenis teknologi dan indikasi resmi FDA-nya.">
+  <h1 class="page-title">Katalog alat</h1>
+  <p class="lede mt-3">
+    Katalog ini hanya memuat alat yang teknologi dan indikasinya bisa dicek di dokumen FDA 510(k) resmi. Status FDA
+    di Amerika Serikat tidak sama dengan izin edar di Indonesia.
+  </p>
+
+  <form class="no-print mt-8 flex flex-wrap items-end gap-3 border-y border-line py-5 text-sm" id="filters" aria-label="Filter katalog">
+    <label class="flex flex-col gap-1.5">
+      <span class="font-medium text-muted">Teknologi</span>
+      <select name="cat" class="min-w-56 rounded-xl border border-line bg-bg px-3 py-2.5 font-medium">
+        <option value="">Semua teknologi</option>
+        {categories.map((c) => <option value={c.id}>{c.data.name}</option>)}
+      </select>
+    </label>
+    <label class="flex flex-col gap-1.5">
+      <span class="font-medium text-muted">Masalah kulit (sesuai indikasi resmi)</span>
+      <select name="concern" class="min-w-56 rounded-xl border border-line bg-bg px-3 py-2.5 font-medium">
+        <option value="">Semua</option>
+        {skinConcerns.map((c) => <option value={c}>{concernLabel[c]}</option>)}
+      </select>
+    </label>
+    <p class="tabular ml-auto pb-2.5 font-semibold text-muted" id="count" aria-live="polite">{devices.length} alat</p>
+  </form>
+
+  <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" id="device-list">
+    {devices.map((d) => (
+      <li data-cats={d.data.categories.map((c) => c.id).join(' ')} data-concerns={d.data.concerns.join(' ')}>
+        <a href={`/alat/${d.id}/`} class="tile-link panel flex h-full flex-col p-5 hover:bg-surface-2">
+          <span class="text-xs font-semibold text-muted">{d.data.manufacturer}</span>
+          <span class="mt-1 text-lg font-bold text-ink">{d.data.name}</span>
+          <span class="mt-2 flex-1 text-sm text-muted">{d.data.lay}</span>
+          <span class="mt-4 flex flex-wrap gap-1.5">
+            {d.data.categories.map((c) => <span class="chip">{catName[c.id]}</span>)}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="mt-6 hidden text-muted" id="empty">
+    Tidak ada alat yang cocok dengan kedua filter. Coba kosongkan salah satunya.
+  </p>
+
+  <p class="mt-12 flex max-w-[75ch] gap-2 text-xs text-muted">
+    <Icon name="info" size={16} class="shrink-0" />
+    Nama dagang adalah milik pemiliknya masing-masing. Dermabook.id tidak berafiliasi dengan produsen mana pun dan tidak
+    merekomendasikan alat tertentu.
+  </p>
+</Base>
+
+<script>
+  const form = document.getElementById('filters') as HTMLFormElement;
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#device-list > li'));
+  const count = document.getElementById('count')!;
+  const empty = document.getElementById('empty')!;
+  function apply() {
+    const cat = (form.elements.namedItem('cat') as HTMLSelectElement).value;
+    const concern = (form.elements.namedItem('concern') as HTMLSelectElement).value;
+    let shown = 0;
+    for (const li of items) {
+      const ok =
+        (!cat || li.dataset.cats!.split(' ').includes(cat)) &&
+        (!concern || li.dataset.concerns!.split(' ').includes(concern));
+      li.hidden = !ok;
+      if (ok) shown++;
+    }
+    count.textContent = `${shown} alat`;
+    empty.classList.toggle('hidden', shown > 0);
+  }
+  form.addEventListener('change', apply);
+</script>

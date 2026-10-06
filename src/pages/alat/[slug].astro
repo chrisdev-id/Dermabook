@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageMeta from '../../components/PageMeta.astro';
+import ReferenceList from '../../components/ReferenceList.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import { concernLabel, fdaUrl, formatDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const devices = await getCollection('devices');
+  return devices.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const categories = await Promise.all(d.categories.map((c) => getEntry(c)));
+---
+<Base title={d.name} description={d.lay}>
+  <a href="/alat/" class="back-link"><Icon name="arrow-left" size={16} /> Katalog alat</a>
+  <p class="mt-5 text-sm font-semibold text-muted">{d.manufacturer}</p>
+  <h1 class="page-title mt-1">{d.name}</h1>
+  <p class="lede mt-3">{d.lay}</p>
+  <PageMeta status={d.status} reviewers={d.reviewers} filePath={entry.filePath} title={d.name} />
+
+  <div class="mt-10 grid gap-8 md:grid-cols-[1.5fr_1fr]">
+    <dl class="space-y-6">
+      <div><dt class="text-sm font-medium text-muted">Teknologi (sesuai dokumen 510(k))</dt><dd class="mt-1 font-semibold">{d.technology}</dd></div>
+      <div>
+        <dt class="text-sm font-medium text-muted">Kategori</dt>
+        <dd class="mt-2 flex flex-wrap gap-2">
+          {categories.map((c) => c && <a href={`/teknologi/${c.id}/`} class="btn btn-secondary btn-sm">{c.data.name}</a>)}
+        </dd>
+      </div>
+      {d.concerns.length > 0 && (
+        <div>
+          <dt class="text-sm font-medium text-muted">Masalah kulit di indikasi resmi</dt>
+          <dd class="mt-2 flex flex-wrap gap-1.5">{d.concerns.map((c) => <span class="chip">{concernLabel[c]}</span>)}</dd>
+        </div>
+      )}
+      <div>
+        <a href={d.official_url} rel="noopener" class="btn btn-quiet">
+          Situs resmi produsen <Icon name="arrow-square-out" size={16} />
+        </a>
+      </div>
+    </dl>
+
+    <aside class="panel p-5 text-sm" aria-labelledby="reg-heading">
+      <h2 id="reg-heading" class="flex items-center gap-2 font-bold"><Icon name="seal-check" size={20} class="text-brand" /> Status regulasi</h2>
+      <ul class="mt-4 space-y-4">
+        {d.fda.map((f) => (
+          <li>
+            <a href={fdaUrl(f.k_number)} rel="noopener" class="inline-flex items-center gap-1 font-semibold">
+              FDA 510(k) {f.k_number} <Icon name="arrow-square-out" size={14} />
+            </a>
+            <div class="mt-0.5 text-muted">{f.device_name}</div>
+            <div class="text-muted">Diputuskan {formatDate(f.decision_date)}, {f.applicant}</div>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-5 border-t border-line pt-4 text-xs text-muted">
+        Diverifikasi {formatDate(d.verified_at)}. Status FDA (AS) tidak sama dengan izin edar Kemenkes RI.
+      </p>
+    </aside>
+  </div>
+
+  <article class="prose-content mt-12">
+    <Content />
+  </article>
+
+  {d.refs.length > 0 && <ReferenceList refs={d.refs} title="Literatur terkait" />}
+
+  <p class="mt-12 flex max-w-[75ch] gap-2 text-xs text-muted">
+    <Icon name="info" size={16} class="shrink-0" />
+    Nama dagang adalah milik pemiliknya masing-masing. Dermabook.id tidak berafiliasi dengan produsen mana pun, tidak
+    merekomendasikan alat tertentu, dan tidak menampilkan parameter perawatan.
+  </p>
+</Base>

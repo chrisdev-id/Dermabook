@@ -1,0 +1,40 @@
+name: Validasi konten
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Cek referensi ke PubMed
+        run: npm run verify:references
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          NCBI_EMAIL: ${{ vars.NCBI_EMAIL }}
+
+      - name: Cek rujukan mesh model 3D
+        run: npm run verify:meshes
+
+      - name: Cek nomor 510(k) ke openFDA
+        run: npm run verify:devices
+        env:
+          OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+
+      - name: Cek tipe
+        run: npm run check
+
+      # Build sekaligus memvalidasi skema konten (referensi wajib, status, dll.)
+      - name: Build situs
+        run: npm run build

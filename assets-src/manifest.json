@@ -1,0 +1,1623 @@
+{
+ "center_m": [
+  -5.2288174629211426e-05,
+  -0.006195873022079468,
+  1.5719841718673706
+ ],
+ "scale": 100.0,
+ "units": "cm",
+ "layers": {
+  "arteri": {
+   "objects": 48,
+   "tris": 42096,
+   "items": [
+    {
+     "mesh": "arteri__angular-artery-l",
+     "source_name": "Angular artery.l",
+     "tris": 1968
+    },
+    {
+     "mesh": "arteri__angular-artery-r",
+     "source_name": "Angular artery.r",
+     "tris": 1968
+    },
+    {
+     "mesh": "arteri__anterior-deep-temporal-artery-l",
+     "source_name": "Anterior deep temporal artery.l",
+     "tris": 672
+    },
+    {
+     "mesh": "arteri__anterior-deep-temporal-artery-r",
+     "source_name": "Anterior deep temporal artery.r",
+     "tris": 672
+    },
+    {
+     "mesh": "arteri__anterior-ethmoidal-artery-l",
+     "source_name": "Anterior ethmoidal artery.l",
+     "tris": 624
+    },
+    {
+     "mesh": "arteri__anterior-ethmoidal-artery-r",
+     "source_name": "Anterior ethmoidal artery.r",
+     "tris": 624
+    },
+    {
+     "mesh": "arteri__buccal-artery-l",
+     "source_name": "Buccal artery.l",
+     "tris": 240
+    },
+    {
+     "mesh": "arteri__buccal-artery-r",
+     "source_name": "Buccal artery.r",
+     "tris": 240
+    },
+    {
+     "mesh": "arteri__external-carotid-artery-l",
+     "source_name": "External carotid artery.l",
+     "tris": 288
+    },
+    {
+     "mesh": "arteri__external-carotid-artery-r",
+     "source_name": "External carotid artery.r",
+     "tris": 288
+    },
+    {
+     "mesh": "arteri__facial-artery-l",
+     "source_name": "Facial artery.l",
+     "tris": 432
+    },
+    {
+     "mesh": "arteri__facial-artery-r",
+     "source_name": "Facial artery.r",
+     "tris": 432
+    },
+    {
+     "mesh": "arteri__frontal-branch-of-superficial-temporal-artery-l",
+     "source_name": "Frontal branch of superficial temporal artery.l",
+     "tris": 768
+    },
+    {
+     "mesh": "arteri__frontal-branch-of-superficial-temporal-artery-r",
+     "source_name": "Frontal branch of superficial temporal artery.r",
+     "tris": 768
+    },
+    {
+     "mesh": "arteri__inferior-alveolar-artery-l",
+     "source_name": "Inferior alveolar artery.l",
+     "tris": 864
+    },
+    {
+     "mesh": "arteri__inferior-alveolar-artery-r",
+     "source_name": "Inferior alveolar artery.r",
+     "tris": 864
+    },
+    {
+     "mesh": "arteri__inferior-labial-artery-l",
+     "source_name": "Inferior labial artery.l",
+     "tris": 384
+    },
+    {
+     "mesh": "arteri__inferior-labial-artery-r",
+     "source_name": "Inferior labial artery.r",
+     "tris": 384
+    },
+    {
+     "mesh": "arteri__infra-orbital-artery-l",
+     "source_name": "Infra-orbital artery.l",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__infra-orbital-artery-r",
+     "source_name": "Infra-orbital artery.r",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__internal-carotid-artery-l",
+     "source_name": "Internal carotid artery.l",
+     "tris": 480
+    },
+    {
+     "mesh": "arteri__internal-carotid-artery-r",
+     "source_name": "Internal carotid artery.r",
+     "tris": 480
+    },
+    {
+     "mesh": "arteri__lacrimal-artery-l",
+     "source_name": "Lacrimal artery.l",
+     "tris": 720
+    },
+    {
+     "mesh": "arteri__lacrimal-artery-r",
+     "source_name": "Lacrimal artery.r",
+     "tris": 720
+    },
+    {
+     "mesh": "arteri__left-common-carotid-artery",
+     "source_name": "Left common carotid artery",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__maxillary-artery-l",
+     "source_name": "Maxillary artery.l",
+     "tris": 1584
+    },
+    {
+     "mesh": "arteri__maxillary-artery-r",
+     "source_name": "Maxillary artery.r",
+     "tris": 1584
+    },
+    {
+     "mesh": "arteri__mental-branch-of-inferior-alveolar-artery-l",
+     "source_name": "Mental branch of inferior alveolar artery.l",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__mental-branch-of-inferior-alveolar-artery-r",
+     "source_name": "Mental branch of inferior alveolar artery.r",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__occipital-artery-l",
+     "source_name": "Occipital artery.l",
+     "tris": 2256
+    },
+    {
+     "mesh": "arteri__occipital-artery-r",
+     "source_name": "Occipital artery.r",
+     "tris": 2256
+    },
+    {
+     "mesh": "arteri__ophthalmic-artery-l",
+     "source_name": "Ophthalmic artery.l",
+     "tris": 288
+    },
+    {
+     "mesh": "arteri__ophthalmic-artery-r",
+     "source_name": "Ophthalmic artery.r",
+     "tris": 288
+    },
+    {
+     "mesh": "arteri__posterior-deep-temporal-artery-l",
+     "source_name": "Posterior deep temporal artery.l",
+     "tris": 624
+    },
+    {
+     "mesh": "arteri__posterior-deep-temporal-artery-r",
+     "source_name": "Posterior deep temporal artery.r",
+     "tris": 624
+    },
+    {
+     "mesh": "arteri__right-common-carotid-artery",
+     "source_name": "Right common carotid artery",
+     "tris": 144
+    },
+    {
+     "mesh": "arteri__submental-artery-l",
+     "source_name": "Submental artery.l",
+     "tris": 720
+    },
+    {
+     "mesh": "arteri__submental-artery-r",
+     "source_name": "Submental artery.r",
+     "tris": 720
+    },
+    {
+     "mesh": "arteri__superficial-temporal-artery-l",
+     "source_name": "Superficial temporal artery.l",
+     "tris": 4368
+    },
+    {
+     "mesh": "arteri__superficial-temporal-artery-r",
+     "source_name": "Superficial temporal artery.r",
+     "tris": 4368
+    },
+    {
+     "mesh": "arteri__superior-labial-artery-l",
+     "source_name": "Superior labial artery.l",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__superior-labial-artery-r",
+     "source_name": "Superior labial artery.r",
+     "tris": 192
+    },
+    {
+     "mesh": "arteri__supra-orbital-artery-l",
+     "source_name": "Supra-orbital artery.l",
+     "tris": 1392
+    },
+    {
+     "mesh": "arteri__supra-orbital-artery-r",
+     "source_name": "Supra-orbital artery.r",
+     "tris": 1392
+    },
+    {
+     "mesh": "arteri__supratrochlear-artery-l",
+     "source_name": "Supratrochlear artery.l",
+     "tris": 960
+    },
+    {
+     "mesh": "arteri__supratrochlear-artery-r",
+     "source_name": "Supratrochlear artery.r",
+     "tris": 960
+    },
+    {
+     "mesh": "arteri__transverse-facial-artery-l",
+     "source_name": "Transverse facial artery.l",
+     "tris": 672
+    },
+    {
+     "mesh": "arteri__transverse-facial-artery-r",
+     "source_name": "Transverse facial artery.r",
+     "tris": 672
+    }
+   ]
+  },
+  "kelenjar": {
+   "objects": 10,
+   "tris": 5648,
+   "items": [
+    {
+     "mesh": "kelenjar__accessory-parotid-gland-l",
+     "source_name": "(Accessory parotid gland).l",
+     "tris": 212
+    },
+    {
+     "mesh": "kelenjar__accessory-parotid-gland-r",
+     "source_name": "(Accessory parotid gland).r",
+     "tris": 212
+    },
+    {
+     "mesh": "kelenjar__parotid-duct-l",
+     "source_name": "Parotid duct.l",
+     "tris": 192
+    },
+    {
+     "mesh": "kelenjar__parotid-duct-r",
+     "source_name": "Parotid duct.r",
+     "tris": 192
+    },
+    {
+     "mesh": "kelenjar__parotid-gland-l",
+     "source_name": "Parotid gland.l",
+     "tris": 1704
+    },
+    {
+     "mesh": "kelenjar__parotid-gland-r",
+     "source_name": "Parotid gland.r",
+     "tris": 1704
+    },
+    {
+     "mesh": "kelenjar__sublingual-gland-l",
+     "source_name": "Sublingual gland.l",
+     "tris": 324
+    },
+    {
+     "mesh": "kelenjar__sublingual-gland-r",
+     "source_name": "Sublingual gland.r",
+     "tris": 324
+    },
+    {
+     "mesh": "kelenjar__submandibular-gland-l",
+     "source_name": "Submandibular gland.l",
+     "tris": 392
+    },
+    {
+     "mesh": "kelenjar__submandibular-gland-r",
+     "source_name": "Submandibular gland.r",
+     "tris": 392
+    }
+   ]
+  },
+  "kulit": {
+   "objects": 95,
+   "tris": 104240,
+   "items": [
+    {
+     "mesh": "kulit__angle-of-mouth-l",
+     "source_name": "Angle of mouth.l",
+     "tris": 110
+    },
+    {
+     "mesh": "kulit__angle-of-mouth-r",
+     "source_name": "Angle of mouth.r",
+     "tris": 110
+    },
+    {
+     "mesh": "kulit__anterior-notch-of-auricle-l",
+     "source_name": "Anterior notch of auricle.l",
+     "tris": 294
+    },
+    {
+     "mesh": "kulit__anterior-notch-of-auricle-r",
+     "source_name": "Anterior notch of auricle.r",
+     "tris": 294
+    },
+    {
+     "mesh": "kulit__anterior-segment-of-eyeball-l",
+     "source_name": "Anterior segment of eyeball.l",
+     "tris": 3328
+    },
+    {
+     "mesh": "kulit__anterior-segment-of-eyeball-r",
+     "source_name": "Anterior segment of eyeball.r",
+     "tris": 3328
+    },
+    {
+     "mesh": "kulit__antihelix-l",
+     "source_name": "Antihelix.l",
+     "tris": 516
+    },
+    {
+     "mesh": "kulit__antihelix-r",
+     "source_name": "Antihelix.r",
+     "tris": 516
+    },
+    {
+     "mesh": "kulit__antitragus-l",
+     "source_name": "Antitragus.l",
+     "tris": 234
+    },
+    {
+     "mesh": "kulit__antitragus-r",
+     "source_name": "Antitragus.r",
+     "tris": 234
+    },
+    {
+     "mesh": "kulit__apex-of-auricle-l",
+     "source_name": "Apex of auricle.l",
+     "tris": 216
+    },
+    {
+     "mesh": "kulit__apex-of-auricle-r",
+     "source_name": "Apex of auricle.r",
+     "tris": 216
+    },
+    {
+     "mesh": "kulit__auricular-region-l",
+     "source_name": "Auricular region.l",
+     "tris": 360
+    },
+    {
+     "mesh": "kulit__auricular-region-r",
+     "source_name": "Auricular region.r",
+     "tris": 360
+    },
+    {
+     "mesh": "kulit__auricular-tubercle-l",
+     "source_name": "Auricular tubercle.l",
+     "tris": 156
+    },
+    {
+     "mesh": "kulit__auricular-tubercle-r",
+     "source_name": "Auricular tubercle.r",
+     "tris": 156
+    },
+    {
+     "mesh": "kulit__buccal-region-l",
+     "source_name": "Buccal region.l",
+     "tris": 704
+    },
+    {
+     "mesh": "kulit__buccal-region-r",
+     "source_name": "Buccal region.r",
+     "tris": 704
+    },
+    {
+     "mesh": "kulit__carotid-triangle-l",
+     "source_name": "Carotid triangle.l",
+     "tris": 104
+    },
+    {
+     "mesh": "kulit__carotid-triangle-r",
+     "source_name": "Carotid triangle.r",
+     "tris": 104
+    },
+    {
+     "mesh": "kulit__cavity-of-concha-l",
+     "source_name": "Cavity of concha.l",
+     "tris": 1290
+    },
+    {
+     "mesh": "kulit__cavity-of-concha-r",
+     "source_name": "Cavity of concha.r",
+     "tris": 1290
+    },
+    {
+     "mesh": "kulit__concha-of-auricle-l",
+     "source_name": "Concha of auricle.l",
+     "tris": 384
+    },
+    {
+     "mesh": "kulit__concha-of-auricle-r",
+     "source_name": "Concha of auricle.r",
+     "tris": 384
+    },
+    {
+     "mesh": "kulit__crura-of-antihelix-l",
+     "source_name": "Crura of antihelix.l",
+     "tris": 544
+    },
+    {
+     "mesh": "kulit__crura-of-antihelix-r",
+     "source_name": "Crura of antihelix.r",
+     "tris": 544
+    },
+    {
+     "mesh": "kulit__cymba-conchae-l",
+     "source_name": "Cymba conchae.l",
+     "tris": 534
+    },
+    {
+     "mesh": "kulit__cymba-conchae-r",
+     "source_name": "Cymba conchae.r",
+     "tris": 534
+    },
+    {
+     "mesh": "kulit__eminentia-conchae-l",
+     "source_name": "Eminentia conchae.l",
+     "tris": 350
+    },
+    {
+     "mesh": "kulit__eminentia-conchae-r",
+     "source_name": "Eminentia conchae.r",
+     "tris": 350
+    },
+    {
+     "mesh": "kulit__eminentia-fossae-triangularis-l",
+     "source_name": "Eminentia fossae triangularis.l",
+     "tris": 306
+    },
+    {
+     "mesh": "kulit__eminentia-fossae-triangularis-r",
+     "source_name": "Eminentia fossae triangularis.r",
+     "tris": 306
+    },
+    {
+     "mesh": "kulit__eminentia-scaphae-l",
+     "source_name": "Eminentia scaphae.l",
+     "tris": 594
+    },
+    {
+     "mesh": "kulit__eminentia-scaphae-r",
+     "source_name": "Eminentia scaphae.r",
+     "tris": 594
+    },
+    {
+     "mesh": "kulit__eyebrow-l",
+     "source_name": "Eyebrow.l",
+     "tris": 48
+    },
+    {
+     "mesh": "kulit__eyebrow-r",
+     "source_name": "Eyebrow.r",
+     "tris": 48
+    },
+    {
+     "mesh": "kulit__fossa-antihelica-l",
+     "source_name": "Fossa antihelica.l",
+     "tris": 358
+    },
+    {
+     "mesh": "kulit__fossa-antihelica-r",
+     "source_name": "Fossa antihelica.r",
+     "tris": 358
+    },
+    {
+     "mesh": "kulit__frontal-region-l",
+     "source_name": "Frontal region.l",
+     "tris": 918
+    },
+    {
+     "mesh": "kulit__frontal-region-r",
+     "source_name": "Frontal region.r",
+     "tris": 918
+    },
+    {
+     "mesh": "kulit__helix-l",
+     "source_name": "Helix.l",
+     "tris": 2810
+    },
+    {
+     "mesh": "kulit__helix-r",
+     "source_name": "Helix.r",
+     "tris": 2810
+    },
+    {
+     "mesh": "kulit__infra-orbital-region-l",
+     "source_name": "Infra-orbital region.l",
+     "tris": 192
+    },
+    {
+     "mesh": "kulit__infra-orbital-region-r",
+     "source_name": "Infra-orbital region.r",
+     "tris": 192
+    },
+    {
+     "mesh": "kulit__intertragic-incisure-l",
+     "source_name": "Intertragic incisure.l",
+     "tris": 426
+    },
+    {
+     "mesh": "kulit__intertragic-incisure-r",
+     "source_name": "Intertragic incisure.r",
+     "tris": 426
+    },
+    {
+     "mesh": "kulit__labial-commissure-l",
+     "source_name": "Labial commissure.l",
+     "tris": 176
+    },
+    {
+     "mesh": "kulit__labial-commissure-r",
+     "source_name": "Labial commissure.r",
+     "tris": 176
+    },
+    {
+     "mesh": "kulit__lobule-of-auricle-l",
+     "source_name": "Lobule of auricle.l",
+     "tris": 1306
+    },
+    {
+     "mesh": "kulit__lobule-of-auricle-r",
+     "source_name": "Lobule of auricle.r",
+     "tris": 1306
+    },
+    {
+     "mesh": "kulit__mastoid-region-l",
+     "source_name": "Mastoid region.l",
+     "tris": 160
+    },
+    {
+     "mesh": "kulit__mastoid-region-r",
+     "source_name": "Mastoid region.r",
+     "tris": 160
+    },
+    {
+     "mesh": "kulit__mental-region-l",
+     "source_name": "Mental region.l",
+     "tris": 304
+    },
+    {
+     "mesh": "kulit__mental-region-r",
+     "source_name": "Mental region.r",
+     "tris": 304
+    },
+    {
+     "mesh": "kulit__nasal-region-l",
+     "source_name": "Nasal region.l",
+     "tris": 996
+    },
+    {
+     "mesh": "kulit__nasal-region-r",
+     "source_name": "Nasal region.r",
+     "tris": 996
+    },
+    {
+     "mesh": "kulit__occipital-region-l",
+     "source_name": "Occipital region.l",
+     "tris": 564
+    },
+    {
+     "mesh": "kulit__occipital-region-r",
+     "source_name": "Occipital region.r",
+     "tris": 564
+    },
+    {
+     "mesh": "kulit__oral-region-l",
+     "source_name": "Oral region.l",
+     "tris": 1046
+    },
+    {
+     "mesh": "kulit__oral-region-r",
+     "source_name": "Oral region.r",
+     "tris": 1046
+    },
+    {
+     "mesh": "kulit__orbital-region-l",
+     "source_name": "Orbital region.l",
+     "tris": 990
+    },
+    {
+     "mesh": "kulit__orbital-region-r",
+     "source_name": "Orbital region.r",
+     "tris": 990
+    },
+    {
+     "mesh": "kulit__parietal-region-l",
+     "source_name": "Parietal region.l",
+     "tris": 830
+    },
+    {
+     "mesh": "kulit__parietal-region-r",
+     "source_name": "Parietal region.r",
+     "tris": 830
+    },
+    {
+     "mesh": "kulit__parotideomasseteric-region-l",
+     "source_name": "Parotideomasseteric region.l",
+     "tris": 352
+    },
+    {
+     "mesh": "kulit__parotideomasseteric-region-r",
+     "source_name": "Parotideomasseteric region.r",
+     "tris": 352
+    },
+    {
+     "mesh": "kulit__mentolabial-sulcus-l",
+     "source_name": "Mentolabial sulcus.l",
+     "tris": 144
+    },
+    {
+     "mesh": "kulit__mentolabial-sulcus-r",
+     "source_name": "Mentolabial sulcus.r",
+     "tris": 144
+    },
+    {
+     "mesh": "kulit__nasolabial-sulcus-l",
+     "source_name": "Nasolabial sulcus.l",
+     "tris": 120
+    },
+    {
+     "mesh": "kulit__nasolabial-sulcus-r",
+     "source_name": "Nasolabial sulcus.r",
+     "tris": 120
+    },
+    {
+     "mesh": "kulit__philtrum-l",
+     "source_name": "Philtrum.l",
+     "tris": 64
+    },
+    {
+     "mesh": "kulit__philtrum-r",
+     "source_name": "Philtrum.r",
+     "tris": 64
+    },
+    {
+     "mesh": "kulit__posterior-auricular-groove-l",
+     "source_name": "Posterior auricular groove.l",
+     "tris": 266
+    },
+    {
+     "mesh": "kulit__posterior-auricular-groove-r",
+     "source_name": "Posterior auricular groove.r",
+     "tris": 266
+    },
+    {
+     "mesh": "kulit__posterior-segment-of-eyeball-l",
+     "source_name": "Posterior segment of eyeball.l",
+     "tris": 6528
+    },
+    {
+     "mesh": "kulit__posterior-segment-of-eyeball-r",
+     "source_name": "Posterior segment of eyeball.r",
+     "tris": 6528
+    },
+    {
+     "mesh": "kulit__scapha-l",
+     "source_name": "Scapha.l",
+     "tris": 414
+    },
+    {
+     "mesh": "kulit__scapha-r",
+     "source_name": "Scapha.r",
+     "tris": 414
+    },
+    {
+     "mesh": "kulit__sternocleidomastoid-region-l",
+     "source_name": "Sternocleidomastoid region.l",
+     "tris": 874
+    },
+    {
+     "mesh": "kulit__sternocleidomastoid-region-r",
+     "source_name": "Sternocleidomastoid region.r",
+     "tris": 874
+    },
+    {
+     "mesh": "kulit__submandibular-triangle-l",
+     "source_name": "Submandibular triangle.l",
+     "tris": 216
+    },
+    {
+     "mesh": "kulit__submandibular-triangle-r",
+     "source_name": "Submandibular triangle.r",
+     "tris": 216
+    },
+    {
+     "mesh": "kulit__submental-triangle-l",
+     "source_name": "Submental triangle.l",
+     "tris": 168
+    },
+    {
+     "mesh": "kulit__submental-triangle-r",
+     "source_name": "Submental triangle.r",
+     "tris": 168
+    },
+    {
+     "mesh": "kulit__temporal-region-l",
+     "source_name": "Temporal region.l",
+     "tris": 720
+    },
+    {
+     "mesh": "kulit__temporal-region-r",
+     "source_name": "Temporal region.r",
+     "tris": 720
+    },
+    {
+     "mesh": "kulit__tragus-l",
+     "source_name": "Tragus.l",
+     "tris": 456
+    },
+    {
+     "mesh": "kulit__tragus-r",
+     "source_name": "Tragus.r",
+     "tris": 456
+    },
+    {
+     "mesh": "kulit__triangular-fossa-l",
+     "source_name": "Triangular fossa.l",
+     "tris": 348
+    },
+    {
+     "mesh": "kulit__triangular-fossa-r",
+     "source_name": "Triangular fossa.r",
+     "tris": 348
+    },
+    {
+     "mesh": "kulit__tubercle-of-upper-lip-l",
+     "source_name": "Tubercle of upper lip.l",
+     "tris": 16
+    },
+    {
+     "mesh": "kulit__tubercle-of-upper-lip-r",
+     "source_name": "Tubercle of upper lip.r",
+     "tris": 16
+    },
+    {
+     "mesh": "kulit__zygomatic-region-l",
+     "source_name": "Zygomatic region.l",
+     "tris": 316
+    },
+    {
+     "mesh": "kulit__zygomatic-region-r",
+     "source_name": "Zygomatic region.r",
+     "tris": 316
+    },
+    {
+     "mesh": "kulit__lapisan-dasar",
+     "source_name": "kulit__lapisan-dasar",
+     "tris": 39940
+    }
+   ]
+  },
+  "saraf": {
+   "objects": 18,
+   "tris": 23056,
+   "items": [
+    {
+     "mesh": "saraf__anterior-division-of-mandibular-nerve-l",
+     "source_name": "Anterior division of mandibular nerve.l",
+     "tris": 104
+    },
+    {
+     "mesh": "saraf__anterior-division-of-mandibular-nerve-r",
+     "source_name": "Anterior division of mandibular nerve.r",
+     "tris": 104
+    },
+    {
+     "mesh": "saraf__buccal-nerve-l",
+     "source_name": "Buccal nerve.l",
+     "tris": 448
+    },
+    {
+     "mesh": "saraf__buccal-nerve-r",
+     "source_name": "Buccal nerve.r",
+     "tris": 448
+    },
+    {
+     "mesh": "saraf__facial-nerve-vii-l",
+     "source_name": "Facial nerve (VII).l",
+     "tris": 4608
+    },
+    {
+     "mesh": "saraf__facial-nerve-vii-r",
+     "source_name": "Facial nerve (VII).r",
+     "tris": 4608
+    },
+    {
+     "mesh": "saraf__inferior-alveolar-nerve-l",
+     "source_name": "Inferior alveolar nerve.l",
+     "tris": 2880
+    },
+    {
+     "mesh": "saraf__inferior-alveolar-nerve-r",
+     "source_name": "Inferior alveolar nerve.r",
+     "tris": 2880
+    },
+    {
+     "mesh": "saraf__maxillary-nerve-l",
+     "source_name": "Maxillary nerve.l",
+     "tris": 1336
+    },
+    {
+     "mesh": "saraf__maxillary-nerve-r",
+     "source_name": "Maxillary nerve.r",
+     "tris": 1336
+    },
+    {
+     "mesh": "saraf__mental-nerve-l",
+     "source_name": "Mental nerve.l",
+     "tris": 456
+    },
+    {
+     "mesh": "saraf__mental-nerve-r",
+     "source_name": "Mental nerve.r",
+     "tris": 456
+    },
+    {
+     "mesh": "saraf__ophthalmic-nerve-l",
+     "source_name": "Ophthalmic nerve.l",
+     "tris": 1144
+    },
+    {
+     "mesh": "saraf__ophthalmic-nerve-r",
+     "source_name": "Ophthalmic nerve.r",
+     "tris": 1144
+    },
+    {
+     "mesh": "saraf__posterior-division-of-mandibular-nerve-l",
+     "source_name": "Posterior division of mandibular nerve.l",
+     "tris": 152
+    },
+    {
+     "mesh": "saraf__posterior-division-of-mandibular-nerve-r",
+     "source_name": "Posterior division of mandibular nerve.r",
+     "tris": 152
+    },
+    {
+     "mesh": "saraf__trigeminal-nerve-v-l",
+     "source_name": "Trigeminal nerve (V).l",
+     "tris": 400
+    },
+    {
+     "mesh": "saraf__trigeminal-nerve-v-r",
+     "source_name": "Trigeminal nerve (V).r",
+     "tris": 400
+    }
+   ]
+  },
+  "smas-otot": {
+   "objects": 74,
+   "tris": 165738,
+   "items": [
+    {
+     "mesh": "smas-otot__anterior-belly-of-digastric-muscle-l",
+     "source_name": "Anterior belly of digastric muscle.l",
+     "tris": 392
+    },
+    {
+     "mesh": "smas-otot__anterior-belly-of-digastric-muscle-r",
+     "source_name": "Anterior belly of digastric muscle.r",
+     "tris": 392
+    },
+    {
+     "mesh": "smas-otot__bucinator-l",
+     "source_name": "Bucinator.l",
+     "tris": 884
+    },
+    {
+     "mesh": "smas-otot__bucinator-r",
+     "source_name": "Bucinator.r",
+     "tris": 884
+    },
+    {
+     "mesh": "smas-otot__corrugator-supercilii-l",
+     "source_name": "Corrugator supercilii.l",
+     "tris": 278
+    },
+    {
+     "mesh": "smas-otot__corrugator-supercilii-r",
+     "source_name": "Corrugator supercilii.r",
+     "tris": 278
+    },
+    {
+     "mesh": "smas-otot__deep-part-of-masseter-l",
+     "source_name": "Deep part of masseter.l",
+     "tris": 994
+    },
+    {
+     "mesh": "smas-otot__deep-part-of-masseter-r",
+     "source_name": "Deep part of masseter.r",
+     "tris": 994
+    },
+    {
+     "mesh": "smas-otot__depressor-anguli-oris-l",
+     "source_name": "Depressor anguli oris.l",
+     "tris": 594
+    },
+    {
+     "mesh": "smas-otot__depressor-anguli-oris-r",
+     "source_name": "Depressor anguli oris.r",
+     "tris": 594
+    },
+    {
+     "mesh": "smas-otot__depressor-labii-inferioris-l",
+     "source_name": "Depressor labii inferioris.l",
+     "tris": 832
+    },
+    {
+     "mesh": "smas-otot__depressor-labii-inferioris-r",
+     "source_name": "Depressor labii inferioris.r",
+     "tris": 832
+    },
+    {
+     "mesh": "smas-otot__depressor-septi-nasi-l",
+     "source_name": "Depressor septi nasi.l",
+     "tris": 276
+    },
+    {
+     "mesh": "smas-otot__depressor-septi-nasi-r",
+     "source_name": "Depressor septi nasi.r",
+     "tris": 276
+    },
+    {
+     "mesh": "smas-otot__epicranial-aponeurosis-l",
+     "source_name": "Epicranial aponeurosis.l",
+     "tris": 20118
+    },
+    {
+     "mesh": "smas-otot__epicranial-aponeurosis-r",
+     "source_name": "Epicranial aponeurosis.r",
+     "tris": 20118
+    },
+    {
+     "mesh": "smas-otot__frontalis-muscle-l",
+     "source_name": "Frontalis muscle.l",
+     "tris": 5874
+    },
+    {
+     "mesh": "smas-otot__frontalis-muscle-r",
+     "source_name": "Frontalis muscle.r",
+     "tris": 5874
+    },
+    {
+     "mesh": "smas-otot__inferior-head-of-lateral-pterygoid-muscle-l",
+     "source_name": "Inferior head of lateral pterygoid muscle.l",
+     "tris": 326
+    },
+    {
+     "mesh": "smas-otot__inferior-head-of-lateral-pterygoid-muscle-r",
+     "source_name": "Inferior head of lateral pterygoid muscle.r",
+     "tris": 326
+    },
+    {
+     "mesh": "smas-otot__inferior-tarsus-l",
+     "source_name": "Inferior tarsus.l",
+     "tris": 108
+    },
+    {
+     "mesh": "smas-otot__inferior-tarsus-r",
+     "source_name": "Inferior tarsus.r",
+     "tris": 108
+    },
+    {
+     "mesh": "smas-otot__levator-anguli-oris-l",
+     "source_name": "Levator anguli oris.l",
+     "tris": 330
+    },
+    {
+     "mesh": "smas-otot__levator-anguli-oris-r",
+     "source_name": "Levator anguli oris.r",
+     "tris": 330
+    },
+    {
+     "mesh": "smas-otot__levator-labii-superioris-l",
+     "source_name": "Levator labii superioris.l",
+     "tris": 540
+    },
+    {
+     "mesh": "smas-otot__levator-labii-superioris-r",
+     "source_name": "Levator labii superioris.r",
+     "tris": 540
+    },
+    {
+     "mesh": "smas-otot__levator-nasolabialis-l",
+     "source_name": "Levator nasolabialis.l",
+     "tris": 172
+    },
+    {
+     "mesh": "smas-otot__levator-nasolabialis-r",
+     "source_name": "Levator nasolabialis.r",
+     "tris": 172
+    },
+    {
+     "mesh": "smas-otot__masseteric-fascia-l",
+     "source_name": "Masseteric fascia.l",
+     "tris": 398
+    },
+    {
+     "mesh": "smas-otot__masseteric-fascia-r",
+     "source_name": "Masseteric fascia.r",
+     "tris": 398
+    },
+    {
+     "mesh": "smas-otot__medial-pterygoid-muscle-l",
+     "source_name": "Medial pterygoid muscle.l",
+     "tris": 496
+    },
+    {
+     "mesh": "smas-otot__medial-pterygoid-muscle-r",
+     "source_name": "Medial pterygoid muscle.r",
+     "tris": 496
+    },
+    {
+     "mesh": "smas-otot__mentalis-muscle-l",
+     "source_name": "Mentalis muscle.l",
+     "tris": 166
+    },
+    {
+     "mesh": "smas-otot__mentalis-muscle-r",
+     "source_name": "Mentalis muscle.r",
+     "tris": 166
+    },
+    {
+     "mesh": "smas-otot__mylohyoid-muscle-l",
+     "source_name": "Mylohyoid muscle.l",
+     "tris": 1122
+    },
+    {
+     "mesh": "smas-otot__mylohyoid-muscle-r",
+     "source_name": "Mylohyoid muscle.r",
+     "tris": 1122
+    },
+    {
+     "mesh": "smas-otot__nasalis-muscle-l",
+     "source_name": "Nasalis muscle.l",
+     "tris": 704
+    },
+    {
+     "mesh": "smas-otot__nasalis-muscle-r",
+     "source_name": "Nasalis muscle.r",
+     "tris": 704
+    },
+    {
+     "mesh": "smas-otot__occipitalis-muscle-l",
+     "source_name": "Occipitalis muscle.l",
+     "tris": 2602
+    },
+    {
+     "mesh": "smas-otot__occipitalis-muscle-r",
+     "source_name": "Occipitalis muscle.r",
+     "tris": 2602
+    },
+    {
+     "mesh": "smas-otot__orbicularis-oris-muscle-l",
+     "source_name": "Orbicularis oris muscle.l",
+     "tris": 1880
+    },
+    {
+     "mesh": "smas-otot__orbicularis-oris-muscle-r",
+     "source_name": "Orbicularis oris muscle.r",
+     "tris": 1880
+    },
+    {
+     "mesh": "smas-otot__procerus-muscle-l",
+     "source_name": "Procerus muscle.l",
+     "tris": 546
+    },
+    {
+     "mesh": "smas-otot__procerus-muscle-r",
+     "source_name": "Procerus muscle.r",
+     "tris": 546
+    },
+    {
+     "mesh": "smas-otot__risorius-muscle-l",
+     "source_name": "Risorius muscle.l",
+     "tris": 592
+    },
+    {
+     "mesh": "smas-otot__risorius-muscle-r",
+     "source_name": "Risorius muscle.r",
+     "tris": 592
+    },
+    {
+     "mesh": "smas-otot__orbital-part-of-orbicularis-oculi-l",
+     "source_name": "Orbital part of orbicularis oculi.l",
+     "tris": 2390
+    },
+    {
+     "mesh": "smas-otot__orbital-part-of-orbicularis-oculi-r",
+     "source_name": "Orbital part of orbicularis oculi.r",
+     "tris": 2390
+    },
+    {
+     "mesh": "smas-otot__palpebral-part-of-orbicularis-oculi-l",
+     "source_name": "Palpebral part of orbicularis oculi.l",
+     "tris": 830
+    },
+    {
+     "mesh": "smas-otot__palpebral-part-of-orbicularis-oculi-r",
+     "source_name": "Palpebral part of orbicularis oculi.r",
+     "tris": 830
+    },
+    {
+     "mesh": "smas-otot__platysma-l",
+     "source_name": "Platysma.l",
+     "tris": 6548
+    },
+    {
+     "mesh": "smas-otot__platysma-r",
+     "source_name": "Platysma.r",
+     "tris": 6548
+    },
+    {
+     "mesh": "smas-otot__posterior-belly-of-digastric-muscle-l",
+     "source_name": "Posterior belly of digastric muscle.l",
+     "tris": 1276
+    },
+    {
+     "mesh": "smas-otot__posterior-belly-of-digastric-muscle-r",
+     "source_name": "Posterior belly of digastric muscle.r",
+     "tris": 1276
+    },
+    {
+     "mesh": "smas-otot__sternocleidomastoid-muscle-l",
+     "source_name": "Sternocleidomastoid muscle.l",
+     "tris": 4952
+    },
+    {
+     "mesh": "smas-otot__sternocleidomastoid-muscle-r",
+     "source_name": "Sternocleidomastoid muscle.r",
+     "tris": 4952
+    },
+    {
+     "mesh": "smas-otot__stylohyoid-muscle-l",
+     "source_name": "Stylohyoid muscle.l",
+     "tris": 694
+    },
+    {
+     "mesh": "smas-otot__stylohyoid-muscle-r",
+     "source_name": "Stylohyoid muscle.r",
+     "tris": 694
+    },
+    {
+     "mesh": "smas-otot__superficial-layer-of-temporal-fascia-l",
+     "source_name": "Superficial layer of temporal fascia.l",
+     "tris": 685
+    },
+    {
+     "mesh": "smas-otot__superficial-layer-of-temporal-fascia-r",
+     "source_name": "Superficial layer of temporal fascia.r",
+     "tris": 685
+    },
+    {
+     "mesh": "smas-otot__superficial-part-of-masseter-l",
+     "source_name": "Superficial part of masseter.l",
+     "tris": 1404
+    },
+    {
+     "mesh": "smas-otot__superficial-part-of-masseter-r",
+     "source_name": "Superficial part of masseter.r",
+     "tris": 1404
+    },
+    {
+     "mesh": "smas-otot__superior-head-of-lateral-pterygoid-muscle-l",
+     "source_name": "Superior head of lateral pterygoid muscle.l",
+     "tris": 226
+    },
+    {
+     "mesh": "smas-otot__superior-head-of-lateral-pterygoid-muscle-r",
+     "source_name": "Superior head of lateral pterygoid muscle.r",
+     "tris": 226
+    },
+    {
+     "mesh": "smas-otot__superior-tarsus-l",
+     "source_name": "Superior tarsus.l",
+     "tris": 178
+    },
+    {
+     "mesh": "smas-otot__superior-tarsus-r",
+     "source_name": "Superior tarsus.r",
+     "tris": 178
+    },
+    {
+     "mesh": "smas-otot__temporalis-muscle-l",
+     "source_name": "Temporalis muscle.l",
+     "tris": 10260
+    },
+    {
+     "mesh": "smas-otot__temporalis-muscle-r",
+     "source_name": "Temporalis muscle.r",
+     "tris": 10260
+    },
+    {
+     "mesh": "smas-otot__temporoparietalis-muscle-l",
+     "source_name": "Temporoparietalis muscle.l",
+     "tris": 11972
+    },
+    {
+     "mesh": "smas-otot__temporoparietalis-muscle-r",
+     "source_name": "Temporoparietalis muscle.r",
+     "tris": 11972
+    },
+    {
+     "mesh": "smas-otot__zygomaticus-major-muscle-l",
+     "source_name": "Zygomaticus major muscle.l",
+     "tris": 798
+    },
+    {
+     "mesh": "smas-otot__zygomaticus-major-muscle-r",
+     "source_name": "Zygomaticus major muscle.r",
+     "tris": 798
+    },
+    {
+     "mesh": "smas-otot__zygomaticus-minor-muscle-l",
+     "source_name": "Zygomaticus minor muscle.l",
+     "tris": 432
+    },
+    {
+     "mesh": "smas-otot__zygomaticus-minor-muscle-r",
+     "source_name": "Zygomaticus minor muscle.r",
+     "tris": 432
+    }
+   ]
+  },
+  "tulang": {
+   "objects": 33,
+   "tris": 128201,
+   "items": [
+    {
+     "mesh": "tulang__atlas-c1",
+     "source_name": "Atlas (C1)",
+     "tris": 2194
+    },
+    {
+     "mesh": "tulang__axis-c2",
+     "source_name": "Axis (C2)",
+     "tris": 2334
+    },
+    {
+     "mesh": "tulang__ethmoid-bone",
+     "source_name": "Ethmoid bone",
+     "tris": 10130
+    },
+    {
+     "mesh": "tulang__frontal-bone",
+     "source_name": "Frontal bone",
+     "tris": 7776
+    },
+    {
+     "mesh": "tulang__hyoid-bone",
+     "source_name": "Hyoid bone",
+     "tris": 1324
+    },
+    {
+     "mesh": "tulang__inferior-nasal-concha-bone-l",
+     "source_name": "Inferior nasal concha bone.l",
+     "tris": 476
+    },
+    {
+     "mesh": "tulang__inferior-nasal-concha-bone-r",
+     "source_name": "Inferior nasal concha bone.r",
+     "tris": 476
+    },
+    {
+     "mesh": "tulang__lacrimal-bone-l",
+     "source_name": "Lacrimal bone.l",
+     "tris": 588
+    },
+    {
+     "mesh": "tulang__lacrimal-bone-r",
+     "source_name": "Lacrimal bone.r",
+     "tris": 588
+    },
+    {
+     "mesh": "tulang__lateral-process-of-nasal-septal-cartilage-l",
+     "source_name": "Lateral process of nasal septal cartilage.l",
+     "tris": 347
+    },
+    {
+     "mesh": "tulang__lateral-process-of-nasal-septal-cartilage-r",
+     "source_name": "Lateral process of nasal septal cartilage.r",
+     "tris": 347
+    },
+    {
+     "mesh": "tulang__major-alar-cartilage-l",
+     "source_name": "Major alar cartilage.l",
+     "tris": 344
+    },
+    {
+     "mesh": "tulang__major-alar-cartilage-r",
+     "source_name": "Major alar cartilage.r",
+     "tris": 344
+    },
+    {
+     "mesh": "tulang__mandible",
+     "source_name": "Mandible",
+     "tris": 18838
+    },
+    {
+     "mesh": "tulang__maxilla-l",
+     "source_name": "Maxilla.l",
+     "tris": 4798
+    },
+    {
+     "mesh": "tulang__maxilla-r",
+     "source_name": "Maxilla.r",
+     "tris": 4798
+    },
+    {
+     "mesh": "tulang__nasal-bone-l",
+     "source_name": "Nasal bone.l",
+     "tris": 292
+    },
+    {
+     "mesh": "tulang__nasal-bone-r",
+     "source_name": "Nasal bone.r",
+     "tris": 292
+    },
+    {
+     "mesh": "tulang__nasal-septal-cartilage",
+     "source_name": "Nasal septal cartilage",
+     "tris": 360
+    },
+    {
+     "mesh": "tulang__occipital-bone",
+     "source_name": "Occipital bone",
+     "tris": 7531
+    },
+    {
+     "mesh": "tulang__parietal-bone-l",
+     "source_name": "Parietal bone.l",
+     "tris": 6886
+    },
+    {
+     "mesh": "tulang__parietal-bone-r",
+     "source_name": "Parietal bone.r",
+     "tris": 6780
+    },
+    {
+     "mesh": "tulang__sphenoid-bone",
+     "source_name": "Sphenoid bone",
+     "tris": 7308
+    },
+    {
+     "mesh": "tulang__temporal-bone-l",
+     "source_name": "Temporal bone.l",
+     "tris": 14094
+    },
+    {
+     "mesh": "tulang__temporal-bone-r",
+     "source_name": "Temporal bone.r",
+     "tris": 14094
+    },
+    {
+     "mesh": "tulang__vertebra-c3",
+     "source_name": "Vertebra C3",
+     "tris": 2440
+    },
+    {
+     "mesh": "tulang__vertebra-c4",
+     "source_name": "Vertebra C4",
+     "tris": 1940
+    },
+    {
+     "mesh": "tulang__vertebra-c5",
+     "source_name": "Vertebra C5",
+     "tris": 2336
+    },
+    {
+     "mesh": "tulang__vertebra-c6",
+     "source_name": "Vertebra C6",
+     "tris": 2304
+    },
+    {
+     "mesh": "tulang__vertebra-c7",
+     "source_name": "Vertebra C7",
+     "tris": 2164
+    },
+    {
+     "mesh": "tulang__vomer",
+     "source_name": "Vomer",
+     "tris": 1022
+    },
+    {
+     "mesh": "tulang__zygomatic-bone-l",
+     "source_name": "Zygomatic bone.l",
+     "tris": 1328
+    },
+    {
+     "mesh": "tulang__zygomatic-bone-r",
+     "source_name": "Zygomatic bone.r",
+     "tris": 1328
+    }
+   ]
+  },
+  "vena": {
+   "objects": 36,
+   "tris": 14112,
+   "items": [
+    {
+     "mesh": "vena__angular-vein-l",
+     "source_name": "Angular vein.l",
+     "tris": 720
+    },
+    {
+     "mesh": "vena__angular-vein-r",
+     "source_name": "Angular vein.r",
+     "tris": 720
+    },
+    {
+     "mesh": "vena__anterior-division-of-retromandibular-vein-l",
+     "source_name": "Anterior division of retromandibular vein.l",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__anterior-division-of-retromandibular-vein-r",
+     "source_name": "Anterior division of retromandibular vein.r",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__anterior-jugular-vein-l",
+     "source_name": "Anterior jugular vein.l",
+     "tris": 288
+    },
+    {
+     "mesh": "vena__anterior-jugular-vein-r",
+     "source_name": "Anterior jugular vein.r",
+     "tris": 288
+    },
+    {
+     "mesh": "vena__common-facial-vein-l",
+     "source_name": "Common facial vein.l",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__common-facial-vein-r",
+     "source_name": "Common facial vein.r",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__external-jugular-vein-l",
+     "source_name": "External jugular vein.l",
+     "tris": 336
+    },
+    {
+     "mesh": "vena__external-jugular-vein-r",
+     "source_name": "External jugular vein.r",
+     "tris": 336
+    },
+    {
+     "mesh": "vena__facial-vein-l",
+     "source_name": "Facial vein.l",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__facial-vein-r",
+     "source_name": "Facial vein.r",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__inferior-labial-veins-l",
+     "source_name": "Inferior labial veins.l",
+     "tris": 1008
+    },
+    {
+     "mesh": "vena__inferior-labial-veins-r",
+     "source_name": "Inferior labial veins.r",
+     "tris": 1008
+    },
+    {
+     "mesh": "vena__inferior-ophthalmic-vein-l",
+     "source_name": "Inferior ophthalmic vein.l",
+     "tris": 144
+    },
+    {
+     "mesh": "vena__inferior-ophthalmic-vein-r",
+     "source_name": "Inferior ophthalmic vein.r",
+     "tris": 144
+    },
+    {
+     "mesh": "vena__internal-jugular-vein-l",
+     "source_name": "Internal jugular vein.l",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__internal-jugular-vein-r",
+     "source_name": "Internal jugular vein.r",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__maxillary-veins-l",
+     "source_name": "Maxillary veins.l",
+     "tris": 480
+    },
+    {
+     "mesh": "vena__maxillary-veins-r",
+     "source_name": "Maxillary veins.r",
+     "tris": 480
+    },
+    {
+     "mesh": "vena__occipital-vein-l",
+     "source_name": "Occipital vein.l",
+     "tris": 864
+    },
+    {
+     "mesh": "vena__occipital-vein-r",
+     "source_name": "Occipital vein.r",
+     "tris": 864
+    },
+    {
+     "mesh": "vena__posterior-auricular-vein-l",
+     "source_name": "Posterior auricular vein.l",
+     "tris": 336
+    },
+    {
+     "mesh": "vena__posterior-auricular-vein-r",
+     "source_name": "Posterior auricular vein.r",
+     "tris": 336
+    },
+    {
+     "mesh": "vena__posterior-division-of-retromandibular-vein-l",
+     "source_name": "Posterior division of retromandibular vein.l",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__posterior-division-of-retromandibular-vein-r",
+     "source_name": "Posterior division of retromandibular vein.r",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__retromandibular-vein-l",
+     "source_name": "Retromandibular vein.l",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__retromandibular-vein-r",
+     "source_name": "Retromandibular vein.r",
+     "tris": 96
+    },
+    {
+     "mesh": "vena__submental-vein-l",
+     "source_name": "Submental vein.l",
+     "tris": 384
+    },
+    {
+     "mesh": "vena__submental-vein-r",
+     "source_name": "Submental vein.r",
+     "tris": 384
+    },
+    {
+     "mesh": "vena__superficial-temporal-veins-l",
+     "source_name": "Superficial temporal veins.l",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__superficial-temporal-veins-r",
+     "source_name": "Superficial temporal veins.r",
+     "tris": 576
+    },
+    {
+     "mesh": "vena__superior-labial-vein-l",
+     "source_name": "Superior labial vein.l",
+     "tris": 192
+    },
+    {
+     "mesh": "vena__superior-labial-vein-r",
+     "source_name": "Superior labial vein.r",
+     "tris": 192
+    },
+    {
+     "mesh": "vena__superior-ophthalmic-vein-l",
+     "source_name": "Superior ophthalmic vein.l",
+     "tris": 192
+    },
+    {
+     "mesh": "vena__superior-ophthalmic-vein-r",
+     "source_name": "Superior ophthalmic vein.r",
+     "tris": 192
+    }
+   ]
+  }
+ }
+}

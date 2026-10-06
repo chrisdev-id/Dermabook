@@ -1,0 +1,22 @@
+---
+// Lencana tingkat risiko (zona bahaya) atau keparahan (komplikasi).
+// Merah untuk tinggi/serius, kuning tua untuk sedang/ringan; oranye tetap khusus untuk aksi.
+import Icon from './Icon.astro';
+interface Props {
+  /** Tingkat risiko zona: 'tinggi' | 'sedang' */
+  level?: string;
+  /** Untuk komplikasi: true bila serius */
+  serious?: boolean;
+}
+const { level, serious } = Astro.props;
+const high = serious ?? level === 'tinggi';
+const text = level ? `Risiko ${level}` : high ? 'Serius' : 'Umumnya ringan';
+---
+<span
+  class:list={[
+    'inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold',
+    high ? 'bg-danger-soft text-danger' : 'bg-[color-mix(in_oklab,var(--warning)_12%,var(--bg))] text-warning',
+  ]}
+>
+  <Icon name={high ? 'warning-octagon' : 'warning'} size={14} weight="bold" /> {text}
+</span>

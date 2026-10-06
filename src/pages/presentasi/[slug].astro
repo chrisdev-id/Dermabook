@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import ScenePlayer from '../../components/viewer/ScenePlayer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const procedures = (await getCollection('procedures')).filter((p) => p.data.scenes.length > 0);
+  return procedures.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+<Base title={`Presentasi: ${entry.data.title}`} description={entry.data.summary} noindex>
+  <ScenePlayer
+    title={entry.data.title}
+    scenes={entry.data.scenes}
+    qrPath={`/materi/${entry.id}/`}
+    exitHref={`/prosedur/${entry.id}/`}
+  />
+</Base>

@@ -1,0 +1,56 @@
+---
+// Gerbang ringan untuk konten klinis: konfirmasi sekali klik "tenaga medis",
+// disimpan di browser. Bukan sistem keamanan; isinya tetap materi edukasi umum.
+import Icon from './Icon.astro';
+interface Props {
+  label?: string;
+}
+const { label = 'Penjelasan klinis' } = Astro.props;
+---
+<section class="clinical-gate mt-8" data-clinical-gate aria-label={label}>
+  <div class="panel hidden p-6" data-gate-prompt>
+    <h2 class="flex items-start gap-2 text-lg font-bold"><Icon name="stethoscope" size={22} class="mt-0.5 shrink-0 text-brand" /> {label} untuk tenaga medis</h2>
+    <p class="mt-2 max-w-[60ch] text-muted">
+      Bagian ini berisi penjelasan klinis yang ditujukan bagi dokter, tenaga medis, dan mahasiswa kedokteran. Materi
+      untuk pasien tersedia di atas.
+    </p>
+    <button type="button" data-gate-confirm class="btn btn-secondary mt-5 whitespace-normal text-left">
+      Saya tenaga medis atau mahasiswa kedokteran
+    </button>
+  </div>
+  <div data-gate-content>
+    <slot />
+  </div>
+</section>
+
+<script>
+  const KEY = 'dermabook-tenaga-medis';
+  let ok = false;
+  try {
+    ok = localStorage.getItem(KEY) === '1';
+  } catch {
+    ok = false;
+  }
+  document.querySelectorAll<HTMLElement>('[data-clinical-gate]').forEach((gate) => {
+    const prompt = gate.querySelector<HTMLElement>('[data-gate-prompt]')!;
+    const content = gate.querySelector<HTMLElement>('[data-gate-content]')!;
+    const show = () => {
+      prompt.classList.add('hidden');
+      content.classList.remove('hidden');
+    };
+    if (ok) return show();
+    prompt.classList.remove('hidden');
+    content.classList.add('hidden');
+    gate.querySelector('[data-gate-confirm]')!.addEventListener('click', () => {
+      try {
+        localStorage.setItem(KEY, '1');
+      } catch {
+        /* penyimpanan browser tidak tersedia: tetap tampilkan untuk sesi ini */
+      }
+      document.querySelectorAll<HTMLElement>('[data-clinical-gate]').forEach((g) => {
+        g.querySelector('[data-gate-prompt]')!.classList.add('hidden');
+        g.querySelector('[data-gate-content]')!.classList.remove('hidden');
+      });
+    });
+  });
+</script>

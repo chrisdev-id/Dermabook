@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { REPO_URL } from '../lib/site';
+---
+<Base title="Privasi" description="Data apa yang dikumpulkan Dermabook.id: tidak ada data pasien, tanpa akun, tanpa cookie pelacak.">
+  <h1 class="page-title">Privasi</h1>
+  <p class="lede mt-3">
+    Singkatnya: Dermabook.id tidak mengumpulkan data pribadi. Tidak ada akun, formulir, cookie pelacak, atau analitik
+    pihak ketiga.
+  </p>
+
+  <article class="prose-content mt-8">
+    <h2>Data pasien</h2>
+    <p>
+      Situs ini tidak menerima data pasien dalam bentuk apa pun. Tidak ada fitur unggah foto, isian kondisi, atau
+      penyimpanan catatan. Semua konten sama untuk setiap pengunjung.
+    </p>
+
+    <h2>Yang disimpan di perangkat Anda</h2>
+    <p>
+      Saat Anda menekan tombol konfirmasi "tenaga medis" di halaman prosedur, browser menyimpan satu penanda
+      (<code>dermabook-tenaga-medis</code>) di penyimpanan lokal agar pertanyaan itu tidak muncul lagi. Penanda ini
+      tidak dikirim ke server mana pun dan bisa dihapus lewat pengaturan browser.
+    </p>
+
+    <h2>Log server</h2>
+    <p>
+      Seperti situs web pada umumnya, server hosting mencatat log akses standar (alamat IP, waktu, halaman yang diminta,
+      dan jenis browser) untuk keamanan dan pemecahan masalah. Log ini tidak digabungkan dengan data lain dan tidak
+      dipakai untuk profil pengunjung.
+    </p>
+
+    <h2>Sumber daya pihak ketiga</h2>
+    <p>
+      Huruf, ikon, dan model 3D disajikan langsung dari server Dermabook.id. Tautan ke PubMed, openFDA, GitHub, dan situs
+      produsen hanya membuka situs tersebut bila Anda mengekliknya; kebijakan privasi masing-masing situs berlaku di sana.
+    </p>
+
+    <h2>Kontak</h2>
+    <p>
+      Pertanyaan tentang privasi bisa diajukan lewat <a href={`${REPO_URL}/issues`} rel="noopener">GitHub Issues</a>.
+    </p>
+  </article>
+</Base>

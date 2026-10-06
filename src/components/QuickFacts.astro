@@ -1,0 +1,41 @@
+---
+// Fakta singkat sebuah prosedur untuk pasien: pemulihan, kapan hasil terlihat, berapa lama bertahan, dst.
+import Icon from './Icon.astro';
+
+interface Props {
+  facts: {
+    downtime?: string;
+    onset?: string;
+    duration?: string;
+    sessions?: string;
+    reversible?: string;
+    skin_tone?: string;
+  };
+}
+const { facts } = Astro.props;
+const rows = [
+  { key: 'downtime', label: 'Masa pemulihan', icon: 'bandaids' },
+  { key: 'onset', label: 'Hasil terlihat', icon: 'eye' },
+  { key: 'duration', label: 'Bertahan', icon: 'hourglass-medium' },
+  { key: 'sessions', label: 'Jumlah sesi', icon: 'repeat' },
+  { key: 'reversible', label: 'Bisa dibatalkan?', icon: 'arrow-counter-clockwise' },
+  { key: 'skin_tone', label: 'Kulit sawo matang atau gelap', icon: 'palette' },
+] as const;
+const shown = rows.filter((r) => facts[r.key]);
+---
+{shown.length > 0 && (
+  <section aria-labelledby="fakta-h">
+    <h2 id="fakta-h" class="text-xl font-bold">Fakta singkat</h2>
+    <dl class="mt-4 grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-2">
+      {shown.map((r) => (
+        <div class="flex gap-3 bg-bg p-4 sm:p-5">
+          <Icon name={r.icon} size={22} class="mt-0.5 shrink-0 text-brand" />
+          <div>
+            <dt class="text-sm font-semibold text-muted">{r.label}</dt>
+            <dd class="mt-1">{facts[r.key]}</dd>
+          </div>
+        </div>
+      ))}
+    </dl>
+  </section>
+)}

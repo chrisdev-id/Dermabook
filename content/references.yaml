@@ -1,0 +1,732 @@
+# Registri referensi Dermabook.id.
+# Setiap entri PubMed dicek otomatis oleh `npm run verify:references`
+# (judul di sini harus cocok dengan judul di PubMed).
+# Lihat docs/SOURCES.md untuk hierarki sumber dan aturan pemakaian.
+
+# ── Anatomi wajah ───────────────────────────────────────────────
+- id: rohrich-2007-fat-compartments
+  type: pubmed
+  pmid: "17519724"
+  doi: 10.1097/01.prs.0000265403.66886.54
+  title: "The fat compartments of the face: anatomy and clinical implications for cosmetic surgery."
+  first_author: Rohrich RJ
+  journal: Plast Reconstr Surg
+  year: 2007
+  verified_at: 2026-10-04
+- id: gierloff-2012-midfacial-ct
+  type: pubmed
+  pmid: "21915077"
+  doi: 10.1097/PRS.0b013e3182362b96
+  title: "Aging changes of the midfacial fat compartments: a computed tomographic study."
+  first_author: Gierloff M
+  journal: Plast Reconstr Surg
+  year: 2012
+  verified_at: 2026-10-04
+- id: gierloff-2012-subcutaneous-fat
+  type: pubmed
+  pmid: "22658728"
+  doi: 10.1016/j.bjps.2012.04.047
+  title: "The subcutaneous fat compartments in relation to aesthetically important facial folds and rhytides."
+  first_author: Gierloff M
+  journal: J Plast Reconstr Aesthet Surg
+  year: 2012
+  verified_at: 2026-10-04
+- id: mendelson-2012-facial-skeleton
+  type: pubmed
+  pmid: "22580543"
+  pmcid: PMC3404279
+  doi: 10.1007/s00266-012-9904-3
+  title: "Changes in the facial skeleton with aging: implications and clinical applications in facial rejuvenation."
+  first_author: Mendelson B
+  journal: Aesthetic Plast Surg
+  year: 2012
+  verified_at: 2026-10-04
+- id: mendelson-2020-facial-skeleton
+  type: pubmed
+  pmid: "32766906"
+  pmcid: PMC7447647
+  doi: 10.1007/s00266-020-01785-0
+  title: "Changes in the Facial Skeleton with Aging: Implications and Clinical Applications in Facial Rejuvenation."
+  first_author: Mendelson BC
+  journal: Aesthetic Plast Surg
+  year: 2020
+  verified_at: 2026-10-04
+- id: alghoul-2013-retaining-ligaments
+  type: pubmed
+  pmid: "23855010"
+  doi: 10.1177/1090820X13495405
+  title: "Retaining ligaments of the face: review of anatomy and clinical applications."
+  first_author: Alghoul M
+  journal: Aesthet Surg J
+  year: 2013
+  verified_at: 2026-10-04
+- id: mendelson-2002-malar-mounds
+  type: pubmed
+  pmid: "12172155"
+  doi: 10.1097/00006534-200209010-00026
+  title: "Surgical anatomy of the midcheek and malar mounds."
+  first_author: Mendelson BC
+  journal: Plast Reconstr Surg
+  year: 2002
+  verified_at: 2026-10-04
+- id: mitz-1976-smas
+  type: pubmed
+  pmid: "935283"
+  doi: 10.1097/00006534-197607000-00013
+  title: "The superficial musculo-aponeurotic system (SMAS) in the parotid and cheek area."
+  first_author: Mitz V
+  journal: Plast Reconstr Surg
+  year: 1976
+  verified_at: 2026-10-04
+- id: cotofana-2016-aging-face
+  type: pubmed
+  pmid: "27248022"
+  doi: 10.1055/s-0036-1582234
+  title: "The Anatomy of the Aging Face: A Review."
+  first_author: Cotofana S
+  journal: Facial Plast Surg
+  year: 2016
+  verified_at: 2026-10-04
+- id: swift-2021-inside-out
+  type: pubmed
+  pmid: "33325497"
+  pmcid: PMC8438644
+  doi: 10.1093/asj/sjaa339
+  title: 'The Facial Aging Process From the "Inside Out".'
+  first_author: Swift A
+  journal: Aesthet Surg J
+  year: 2021
+  verified_at: 2026-10-04
+- id: cotofana-2019-arteries
+  type: pubmed
+  pmid: "30688884"
+  doi: 10.1097/PRS.0000000000005201
+  title: "Arteries of the Face and Their Relevance for Minimally Invasive Facial Procedures: An Anatomical Review."
+  first_author: Cotofana S
+  journal: Plast Reconstr Surg
+  year: 2019
+  verified_at: 2026-10-04
+- id: koh-2003-facial-artery
+  type: pubmed
+  pmid: "14505627"
+  doi: 10.1054/ijom.2002.0372
+  title: "Branching patterns and symmetry of the course of the facial artery in Koreans."
+  first_author: Koh KS
+  journal: Int J Oral Maxillofac Surg
+  year: 2003
+  verified_at: 2026-10-04
+- id: scheuer-2017-danger-zones-anatomy
+  type: pubmed
+  pmid: "28027232"
+  doi: 10.1097/PRS.0000000000002913
+  title: "Anatomy of the Facial Danger Zones: Maximizing Safety during Soft-Tissue Filler Injections."
+  first_author: Scheuer JF 3rd
+  journal: Plast Reconstr Surg
+  year: 2017
+  verified_at: 2026-10-04
+- id: scheuer-2017-danger-zones-techniques
+  type: pubmed
+  pmid: "28445360"
+  doi: 10.1097/PRS.0000000000003309
+  title: "Facial Danger Zones: Techniques to Maximize Safety during Soft-Tissue Filler Injections."
+  first_author: Scheuer JF 3rd
+  journal: Plast Reconstr Surg
+  year: 2017
+  verified_at: 2026-10-04
+- id: kumar-2018-delphi-core-syllabus
+  type: pubmed
+  pmid: "29707450"
+  pmcid: PMC5908490
+  doi: 10.1097/GOX.0000000000001687
+  title: 'Development of "Core Syllabus" for Facial Anatomy Teaching to Aesthetic Physicians: A Delphi Consensus.'
+  first_author: Kumar N
+  journal: Plast Reconstr Surg Glob Open
+  year: 2018
+  verified_at: 2026-10-04
+- id: boggio-2017-dynamic-model-botox
+  type: pubmed
+  pmid: "29263949"
+  pmcid: PMC5732655
+  doi: 10.1097/GOX.0000000000001525
+  title: "Dynamic Model of Applied Facial Anatomy with Emphasis on Teaching of Botulinum Toxin A."
+  first_author: Boggio RF
+  journal: Plast Reconstr Surg Glob Open
+  year: 2017
+  verified_at: 2026-10-04
+- id: clark-2023-facial-fillers
+  type: pubmed
+  pmid: "37780674"
+  pmcid: PMC10541169
+  doi: 10.1002/wjo2.126
+  title: "Facial fillers: Relevant anatomy, injection techniques, and complications."
+  first_author: Clark NW
+  journal: World J Otorhinolaryngol Head Neck Surg
+  year: 2023
+  verified_at: 2026-10-04
+- id: hong-2025-thread-lifting
+  type: pubmed
+  pmid: "39376117"
+  pmcid: PMC11743344
+  doi: 10.1111/jocd.16618
+  title: "Anatomical Considerations for Thread Lifting Procedure."
+  first_author: Hong GW
+  journal: J Cosmet Dermatol
+  year: 2025
+  verified_at: 2026-10-04
+- id: yi-2026-thread-micro-ct
+  type: pubmed
+  pmid: "41684922"
+  pmcid: PMC12890646
+  doi: 10.3389/fmed.2026.1581406
+  title: "Anatomical layer analysis for safe thread insertion using micro-CT and ultrasonography: enhancing precision in facial thread-lifting procedures."
+  first_author: Yi KH
+  journal: Front Med (Lausanne)
+  year: 2026
+  verified_at: 2026-10-04
+
+# ── Prosedur & komplikasi ───────────────────────────────────────
+- id: sundaram-2016-bont-consensus
+  type: pubmed
+  pmid: "26910696"
+  pmcid: PMC5242214
+  doi: 10.1097/01.prs.0000475758.63709.23
+  title: "Global Aesthetics Consensus: Botulinum Toxin Type A--Evidence-Based Review, Emerging Concepts, and Consensus Recommendations for Aesthetic Use, Including Updates on Complications."
+  first_author: Sundaram H
+  journal: Plast Reconstr Surg
+  year: 2016
+  verified_at: 2026-10-04
+- id: sundaram-2016-ha-bont-combined
+  type: pubmed
+  pmid: "27119917"
+  pmcid: PMC5242215
+  doi: 10.1097/PRS.0000000000002119
+  title: "Global Aesthetics Consensus: Hyaluronic Acid Fillers and Botulinum Toxin Type A-Recommendations for Combined Treatment and Optimizing Outcomes in Diverse Patient Populations."
+  first_author: Sundaram H
+  journal: Plast Reconstr Surg
+  year: 2016
+  verified_at: 2026-10-04
+- id: signorini-2016-ha-complications
+  type: pubmed
+  pmid: "27219265"
+  pmcid: PMC5242216
+  doi: 10.1097/PRS.0000000000002184
+  title: "Global Aesthetics Consensus: Avoidance and Management of Complications from Hyaluronic Acid Fillers-Evidence- and Opinion-Based Review and Consensus Recommendations."
+  first_author: Signorini M
+  journal: Plast Reconstr Surg
+  year: 2016
+  verified_at: 2026-10-04
+- id: carruthers-2004-bont-consensus
+  type: pubmed
+  pmid: "15507786"
+  doi: 10.1097/01.PRS.0000144795.76040.D3
+  title: "Consensus recommendations on the use of botulinum toxin type a in facial aesthetics."
+  first_author: Carruthers J
+  journal: Plast Reconstr Surg
+  year: 2004
+  verified_at: 2026-10-04
+- id: murray-2021-vascular-occlusion
+  type: pubmed
+  pmid: "34188752"
+  pmcid: PMC8211329
+  title: "Guideline for the Management of Hyaluronic Acid Filler-induced Vascular Occlusion."
+  first_author: Murray G
+  journal: J Clin Aesthet Dermatol
+  year: 2021
+  verified_at: 2026-10-04
+
+# ── Teknologi perangkat ─────────────────────────────────────────
+- id: anderson-1983-selective-photothermolysis
+  type: pubmed
+  pmid: "6836297"
+  doi: 10.1126/science.6836297
+  title: "Selective photothermolysis: precise microsurgery by selective absorption of pulsed radiation."
+  first_author: Anderson RR
+  journal: Science
+  year: 1983
+  verified_at: 2026-10-04
+- id: manstein-2004-fractional
+  type: pubmed
+  pmid: "15216537"
+  doi: 10.1002/lsm.20048
+  title: "Fractional photothermolysis: a new concept for cutaneous remodeling using microscopic patterns of thermal injury."
+  first_author: Manstein D
+  journal: Lasers Surg Med
+  year: 2004
+  verified_at: 2026-10-04
+- id: riggs-2007-ablative-resurfacing
+  type: pubmed
+  pmid: "17870524"
+  doi: 10.1016/j.clindermatol.2007.07.003
+  title: "Ablative laser resurfacing: high-energy pulsed carbon dioxide and erbium:yttrium-aluminum-garnet."
+  first_author: Riggs K
+  journal: Clin Dermatol
+  year: 2007
+  verified_at: 2026-10-04
+- id: chen-2017-co2-vs-eryag
+  type: pubmed
+  pmid: "28166434"
+  doi: 10.1080/14764172.2017.1288261
+  title: "A systematic review of comparative studies of CO(2) and erbium:YAG lasers in resurfacing facial rhytides (wrinkles)."
+  first_author: Chen KH
+  journal: J Cosmet Laser Ther
+  year: 2017
+  verified_at: 2026-10-04
+- id: alster-2001-eryag
+  type: pubmed
+  pmid: "11599402"
+  doi: 10.1016/s0733-8635(05)70286-2
+  title: "Erbium:YAG cutaneous laser resurfacing."
+  first_author: Alster TS
+  journal: Dermatol Clin
+  year: 2001
+  verified_at: 2026-10-04
+- id: friedman-2020-1440-1927
+  type: pubmed
+  pmid: "32804450"
+  title: "The 1440 nm and 1927 nm Nonablative Fractional Diode Laser: Current Trends and Future Directions."
+  first_author: Friedman PM
+  journal: J Drugs Dermatol
+  year: 2020
+  verified_at: 2026-10-04
+- id: oliveira-modena-2025-thulium
+  type: pubmed
+  pmid: "41379329"
+  doi: 10.1007/s10103-025-04781-5
+  title: "Thulium laser (1927 nm) for dermatological conditions: a systematic review."
+  first_author: Oliveira Modena DA
+  journal: Lasers Med Sci
+  year: 2025
+  verified_at: 2026-10-04
+- id: gan-2013-laser-hair-removal
+  type: pubmed
+  pmid: "23332016"
+  doi: 10.1111/dsu.12116
+  title: "Laser hair removal: a review."
+  first_author: Gan SD
+  journal: Dermatol Surg
+  year: 2013
+  verified_at: 2026-10-04
+- id: wat-2014-ipl
+  type: pubmed
+  pmid: "24495252"
+  doi: 10.1111/dsu.12424
+  title: "Application of intense pulsed light in the treatment of dermatologic disease: a systematic review."
+  first_author: Wat H
+  journal: Dermatol Surg
+  year: 2014
+  verified_at: 2026-10-04
+- id: chou-2024-pdl-pws
+  type: pubmed
+  pmid: "37431532"
+  doi: 10.1002/lsm.23706
+  title: "Pulsed dye laser and adjuvant topical therapies for the treatment of port-wine stains: A systematic review."
+  first_author: Chou M
+  journal: Lasers Surg Med
+  year: 2024
+  verified_at: 2026-10-04
+- id: modena-2021-qs-tattoo
+  type: pubmed
+  pmid: "34668826"
+  doi: 10.1080/14764172.2021.1988109
+  title: "High power Q-switched 1064 nm / 532 nm Nd:YAG Laser in tattoo removal: A systematic review."
+  first_author: Modena DAO
+  journal: J Cosmet Laser Ther
+  year: 2021
+  verified_at: 2026-10-04
+- id: yu-2016-qs-alexandrite-ota
+  type: pubmed
+  pmid: "26861980"
+  doi: 10.1007/s10103-016-1885-z
+  title: "Comparison of clinical efficacy and complications between Q-switched alexandrite laser and Q-switched Nd:YAG laser on nevus of Ota: a systematic review and meta-analysis."
+  first_author: Yu P
+  journal: Lasers Med Sci
+  year: 2016
+  verified_at: 2026-10-04
+- id: wu-2021-picosecond
+  type: pubmed
+  pmid: "32282094"
+  doi: 10.1002/lsm.23244
+  title: "A Systematic Review of Picosecond Laser in Dermatology: Evidence and Recommendations."
+  first_author: Wu DC
+  journal: Lasers Surg Med
+  year: 2021
+  verified_at: 2026-10-04
+- id: torbeck-2019-picosecond
+  type: pubmed
+  pmid: "30702447"
+  doi: 10.1097/DSS.0000000000001697
+  title: "Evolution of the Picosecond Laser: A Review of Literature."
+  first_author: Torbeck RL
+  journal: Dermatol Surg
+  year: 2019
+  verified_at: 2026-10-04
+- id: carruthers-2014-monopolar-rf
+  type: pubmed
+  pmid: "25417570"
+  doi: 10.1097/DSS.0000000000000232
+  title: "Monopolar radiofrequency for skin tightening: our experience and a review of the literature."
+  first_author: Carruthers J
+  journal: Dermatol Surg
+  year: 2014
+  verified_at: 2026-10-04
+- id: rohrich-2022-rf-tightening
+  type: pubmed
+  pmid: "35877937"
+  doi: 10.1097/PRS.0000000000009535
+  title: "Minimally Invasive Approach to Skin Tightening of the Face and Body: Systematic Review of Monopolar and Bipolar Radiofrequency Devices."
+  first_author: Rohrich RJ
+  journal: Plast Reconstr Surg
+  year: 2022
+  verified_at: 2026-10-04
+- id: tan-2021-rf-microneedling
+  type: pubmed
+  pmid: "33577211"
+  doi: 10.1097/DSS.0000000000002972
+  title: "Radiofrequency Microneedling: A Comprehensive and Critical Review."
+  first_author: Tan MG
+  journal: Dermatol Surg
+  year: 2021
+  verified_at: 2026-10-04
+- id: kneiber-2023-rf-microneedling
+  type: pubmed
+  pmid: "37844087"
+  doi: 10.1080/14764172.2023.2268308
+  title: "Review of radiofrequency microneedling: history, devices and uses."
+  first_author: Kneiber D
+  journal: J Cosmet Laser Ther
+  year: 2023
+  verified_at: 2026-10-04
+- id: pavicic-2022-mfuv-consensus
+  type: pubmed
+  pmid: "34951735"
+  pmcid: PMC9305832
+  doi: 10.1111/jocd.14666
+  title: "Microfocused ultrasound with visualization: Consensus on safety and review of energy-based devices."
+  first_author: Pavicic T
+  journal: J Cosmet Dermatol
+  year: 2022
+  verified_at: 2026-10-04
+- id: contini-2023-mfu-review
+  type: pubmed
+  pmid: "36674277"
+  pmcid: PMC9861614
+  doi: 10.3390/ijerph20021522
+  title: "A Systematic Review of the Efficacy of Microfocused Ultrasound for Facial Skin Tightening."
+  first_author: Contini M
+  journal: Int J Environ Res Public Health
+  year: 2023
+  verified_at: 2026-10-04
+- id: ravindran-2025-cryolipolysis
+  type: pubmed
+  pmid: "40211915"
+  pmcid: PMC12246886
+  doi: 10.1111/obr.13925
+  title: "Cryolipolysis and associated health outcomes, adverse events, and satisfaction: A systematic review and meta-analysis."
+  first_author: Ravindran R
+  journal: Obes Rev
+  year: 2025
+  verified_at: 2026-10-04
+- id: bass-2018-1060-diode
+  type: pubmed
+  pmid: "29320595"
+  title: "Safety and Efficacy of a Non-Invasive 1060 nm Diode Laser for Fat Reduction of the Abdomen."
+  first_author: Bass LS
+  journal: J Drugs Dermatol
+  year: 2018
+  verified_at: 2026-10-04
+- id: schilling-2017-1060-diode
+  type: pubmed
+  pmid: "28095532"
+  title: "1060 nm Diode Hyperthermic Laser Lipolysis:The Latest in Non-Invasive Body Contouring."
+  first_author: Schilling L
+  journal: J Drugs Dermatol
+  year: 2017
+  verified_at: 2026-10-04
+- id: scopelliti-2022-1726
+  type: pubmed
+  pmid: "36197599"
+  doi: 10.1007/s10103-022-03645-6
+  title: "A novel 1726-nm laser system for safe and effective treatment of acne vulgaris."
+  first_author: Scopelliti MG
+  journal: Lasers Med Sci
+  year: 2022
+  verified_at: 2026-10-04
+- id: goldberg-2026-1726
+  type: pubmed
+  pmid: "41052654"
+  doi: 10.1016/j.jaad.2025.09.077
+  title: "Safe and effective acne treatment across skin types with a 1726 nm sebum-selective laser: One year data from a prospective multicenter study."
+  first_author: Goldberg D
+  journal: J Am Acad Dermatol
+  year: 2026
+  verified_at: 2026-10-04
+
+# ── Rujukan umum terbuka ────────────────────────────────────────
+- id: openstax-anatomy-physiology-2e
+  type: book
+  url: https://openstax.org/details/books/anatomy-and-physiology-2e
+  title: "Anatomy and Physiology 2e"
+  first_author: Betts JG
+  journal: OpenStax
+  year: 2022
+  license: CC BY 4.0
+  verified_at: 2026-10-04
+
+# ── Prosedur tambahan & fakta untuk pasien (ditambahkan 6 Okt 2026) ─────
+- id: camargo-2021-bont-cochrane
+  type: pubmed
+  pmid: "34224576"
+  pmcid: PMC8407355
+  doi: 10.1002/14651858.CD011301.pub2
+  title: "Botulinum toxin type A for facial wrinkles."
+  first_author: Camargo CP
+  journal: Cochrane Database Syst Rev
+  year: 2021
+  verified_at: 2026-10-06
+- id: kyriazidis-2024-ha-adverse-events
+  type: pubmed
+  pmid: "37563436"
+  doi: 10.1007/s00266-023-03465-1
+  title: "Adverse Events Associated with Hyaluronic Acid Filler Injection for Non-surgical Facial Aesthetics: A Systematic Review of High Level of Evidence Studies."
+  first_author: Kyriazidis I
+  journal: Aesthetic Plast Surg
+  year: 2024
+  verified_at: 2026-10-06
+- id: trinh-2022-tear-trough
+  type: pubmed
+  pmid: "34192769"
+  doi: 10.1055/s-0041-1731348
+  title: "Dermal Fillers for Tear Trough Rejuvenation: A Systematic Review."
+  first_author: Trinh LN
+  journal: Facial Plast Surg
+  year: 2022
+  verified_at: 2026-10-06
+- id: trinh-2022-tear-trough-delayed
+  type: pubmed
+  pmid: "34666405"
+  doi: 10.1055/s-0041-1736390
+  title: "Delayed Complications following Dermal Filler for Tear Trough Augmentation: A Systematic Review."
+  first_author: Trinh LN
+  journal: Facial Plast Surg
+  year: 2022
+  verified_at: 2026-10-06
+- id: gulbitti-2018-thread-lift
+  type: pubmed
+  pmid: "29481392"
+  doi: 10.1097/PRS.0000000000004101
+  title: "Thread-Lift Sutures: Still in the Lift? A Systematic Review of the Literature."
+  first_author: Gülbitti HA
+  journal: Plast Reconstr Surg
+  year: 2018
+  verified_at: 2026-10-06
+- id: contreras-2023-pdo-threads
+  type: pubmed
+  pmid: "37021458"
+  doi: 10.1111/jocd.15709
+  title: "Using PDO threads: A scarcely studied rejuvenation technique. Case report and systematic review."
+  first_author: Contreras C
+  journal: J Cosmet Dermatol
+  year: 2023
+  verified_at: 2026-10-06
+- id: khunger-2008-chemical-peels
+  type: pubmed
+  pmid: "18688104"
+  title: "Standard guidelines of care for chemical peels."
+  first_author: Khunger N
+  journal: Indian J Dermatol Venereol Leprol
+  year: 2008
+  verified_at: 2026-10-06
+- id: sarkar-2024-peels-melasma
+  type: pubmed
+  pmid: "38530985"
+  doi: 10.1097/DSS.0000000000004167
+  title: "Chemical Peels for Melasma: A Systematic Review."
+  first_author: Sarkar R
+  journal: Dermatol Surg
+  year: 2024
+  verified_at: 2026-10-06
+- id: spring-2017-isotretinoin-procedures
+  type: pubmed
+  pmid: "28658462"
+  doi: 10.1001/jamadermatol.2017.2077
+  title: "Isotretinoin and Timing of Procedural Interventions: A Systematic Review With Consensus Recommendations."
+  first_author: Spring LK
+  journal: JAMA Dermatol
+  year: 2017
+  verified_at: 2026-10-06
+- id: lee-2026-fitzpatrick-iv-vi
+  type: pubmed
+  pmid: "41884758"
+  pmcid: PMC13012588
+  doi: 10.1097/GOX.0000000000007541
+  title: "Noninvasive Cosmetic Treatments for Fitzpatrick IV-VI: A Narrative Review of Safety and Efficacy Guidelines."
+  first_author: Lee SS
+  journal: Plast Reconstr Surg Glob Open
+  year: 2026
+  verified_at: 2026-10-06
+- id: mar-2024-pih-skin-of-colour
+  type: pubmed
+  pmid: "39075672"
+  pmcid: PMC11514325
+  doi: 10.1177/12034754241265716
+  title: "Treatment of Post-Inflammatory Hyperpigmentation in Skin of Colour: A Systematic Review."
+  first_author: Mar K
+  journal: J Cutan Med Surg
+  year: 2024
+  verified_at: 2026-10-06
+- id: alster-2018-microneedling
+  type: pubmed
+  pmid: "28796657"
+  doi: 10.1097/DSS.0000000000001248
+  title: "Microneedling: A Review and Practical Guide."
+  first_author: Alster TS
+  journal: Dermatol Surg
+  year: 2018
+  verified_at: 2026-10-06
+- id: shen-2022-microneedling-acne-scar
+  type: pubmed
+  pmid: "35426044"
+  doi: 10.1007/s00266-022-02845-3
+  title: "Microneedling Monotherapy for Acne Scar: Systematic Review and Meta-Analysis of Randomized Controlled Trials."
+  first_author: Shen YC
+  journal: Aesthetic Plast Surg
+  year: 2022
+  verified_at: 2026-10-06
+- id: mujahid-2020-microneedling-acne-scar
+  type: pubmed
+  pmid: "31356435"
+  doi: 10.1097/DSS.0000000000002020
+  title: "Microneedling as a Treatment for Acne Scarring: A Systematic Review."
+  first_author: Mujahid N
+  journal: Dermatol Surg
+  year: 2020
+  verified_at: 2026-10-06
+- id: bailey-2022-microneedling-melasma
+  type: pubmed
+  pmid: "33857549"
+  doi: 10.1016/j.jaad.2021.03.116
+  title: "Microneedling as an adjuvant to topical therapies for melasma: A systematic review and meta-analysis."
+  first_author: Bailey AJM
+  journal: J Am Acad Dermatol
+  year: 2022
+  verified_at: 2026-10-06
+- id: foppiani-2025-microneedling-rejuvenation
+  type: pubmed
+  pmid: "40542236"
+  doi: 10.1007/s00266-025-04972-z
+  title: "Microneedling for Facial Rejuvenation: A Systematic Review."
+  first_author: Foppiani JA
+  journal: Aesthetic Plast Surg
+  year: 2025
+  verified_at: 2026-10-06
+- id: vleggaar-2014-plla-consensus
+  type: pubmed
+  pmid: "24719078"
+  title: "Consensus recommendations on the use of injectable poly-L-lactic acid for facial and nonfacial volumization."
+  first_author: Vleggaar D
+  journal: J Drugs Dermatol
+  year: 2014
+  verified_at: 2026-10-06
+- id: trinh-2021-non-ha-midface
+  type: pubmed
+  pmid: "33648015"
+  doi: 10.1055/s-0041-1725164
+  title: "Non-Hyaluronic Acid Fillers for Midface Augmentation: A Systematic Review."
+  first_author: Trinh LN
+  journal: Facial Plast Surg
+  year: 2021
+  verified_at: 2026-10-06
+- id: guida-2024-caha-face
+  type: pubmed
+  pmid: "37897174"
+  doi: 10.1111/ijd.16888
+  title: "A systematic review of Radiesse/calcium hydroxylapatite and carboxymethylcellulose: evidence and recommendations for treatment of the face."
+  first_author: Guida S
+  journal: Int J Dermatol
+  year: 2024
+  verified_at: 2026-10-06
+- id: goldie-2018-caha-diluted
+  type: pubmed
+  pmid: "30358631"
+  doi: 10.1097/DSS.0000000000001685
+  title: "Global Consensus Guidelines for the Injection of Diluted and Hyperdiluted Calcium Hydroxylapatite for Skin Tightening."
+  first_author: Goldie K
+  journal: Dermatol Surg
+  year: 2018
+  verified_at: 2026-10-06
+- id: yutskovskaya-2014-caha-histology
+  type: pubmed
+  pmid: "25226004"
+  title: "A randomized, split-face, histomorphologic study comparing a volumetric calcium hydroxylapatite and a hyaluronic acid-based dermal filler."
+  first_author: Yutskovskaya Y
+  journal: J Drugs Dermatol
+  year: 2014
+  verified_at: 2026-10-06
+
+# ── Dermapedia: ensiklopedia edukasi, ditulis & ditinjau dr. Margaret Schwarz (dermatolog bersertifikat, AS) ─────
+# Dipakai untuk fakta praktis bagi pasien (pemulihan, kapan hasil terlihat, catatan kulit gelap),
+# selalu bersama sumber primer. Teks tidak disalin; hanya dirujuk dan ditautkan.
+- id: dermapedia-botox
+  type: url
+  url: https://www.dermapedia.health/procedures/botox
+  title: "Botox: What It Does, How Long It Lasts, and Risks"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-dermal-fillers
+  type: url
+  url: https://www.dermapedia.health/procedures/dermal-fillers
+  title: "Dermal Fillers: What They Do, Risks, and How Long They Last"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-pdo-threads
+  type: url
+  url: https://www.dermapedia.health/procedures/pdo-threads
+  title: "PDO Threads: How Much They Lift and How Long It Lasts"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-chemical-peel
+  type: url
+  url: https://www.dermapedia.health/procedures/chemical-peel
+  title: "Chemical Peel: Depth, What It Treats, Downtime and Risks"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-microneedling
+  type: url
+  url: https://www.dermapedia.health/procedures/microneedling
+  title: "Microneedling for Acne Scars: What It Does"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-sculptra
+  type: url
+  url: https://www.dermapedia.health/procedures/sculptra
+  title: "Sculptra: How It Works, Sessions and What to Expect"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-radiesse
+  type: url
+  url: https://www.dermapedia.health/procedures/radiesse
+  title: "Radiesse: How It Works, How Long It Lasts, and Risks"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06
+- id: dermapedia-ipl
+  type: url
+  url: https://www.dermapedia.health/procedures/ipl
+  title: "IPL (Intense Pulsed Light): Uses, Risks and Skin Tone Limits"
+  first_author: Schwarz M
+  journal: Dermapedia (ditinjau 2026)
+  year: 2026
+  verified_at: 2026-10-06

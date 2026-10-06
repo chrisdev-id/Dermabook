@@ -1,0 +1,37 @@
+---
+import { getEntry } from 'astro:content';
+
+interface Props {
+  refs: { id: { id: string }; locator?: string }[];
+  title?: string;
+}
+const { refs, title = 'Referensi' } = Astro.props;
+
+const items = await Promise.all(
+  refs.map(async (r) => {
+    const entry = await getEntry('references', r.id.id);
+    if (!entry) throw new Error(`Referensi tidak ditemukan: ${r.id.id}`);
+    return { ...entry.data, locator: r.locator };
+  }),
+);
+---
+{items.length > 0 && (
+  <section class="mt-12 border-t border-line pt-8" aria-labelledby="ref-heading">
+    <h2 id="ref-heading" class="text-lg font-bold">{title}</h2>
+    <ol class="mt-4 space-y-3 text-sm text-muted [counter-reset:ref]">
+      {items.map((r) => (
+        <li class="relative pl-8 [counter-increment:ref] before:absolute before:left-0 before:top-0 before:font-semibold before:text-brand-ink before:content-[counter(ref)] before:tabular-nums">
+          <span class="font-medium text-ink">{r.first_author}{r.type === 'pubmed' || r.type === 'doi' ? ' et al.' : '.'}</span> {r.title}{' '}
+          {r.journal && <em>{r.journal}</em>} {r.year}.
+          {r.locator && <span> ({r.locator})</span>}
+          <span class="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-medium">
+            {r.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`} rel="noopener">PubMed</a>}
+            {r.pmcid && <a href={`https://pmc.ncbi.nlm.nih.gov/articles/${r.pmcid}/`} rel="noopener">Teks lengkap (PMC)</a>}
+            {r.doi && <a href={`https://doi.org/${r.doi}`} rel="noopener">DOI</a>}
+            {r.url && <a href={r.url} rel="noopener">Buka halaman</a>}
+          </span>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

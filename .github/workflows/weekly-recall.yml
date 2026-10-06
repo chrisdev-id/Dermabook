@@ -1,0 +1,30 @@
+name: Cek recall FDA mingguan
+
+on:
+  schedule:
+    - cron: '0 1 * * 1' # Senin 01.00 UTC (08.00 WIB)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  recalls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Cek recall
+        run: npm run check:recalls
+        env:
+          OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+      - name: Buat issue bila ada recall baru
+        if: hashFiles('recall-report.md') != ''
+        run: gh issue create --title "Recall FDA baru untuk alat di katalog ($(date -u +%F))" --body-file recall-report.md
+        env:
+          GH_TOKEN: ${{ github.token }}

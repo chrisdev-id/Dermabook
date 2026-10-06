@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { SITE_NAME, SITE_TAGLINE, REPO_URL } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+  /** Lebar konten: 'default' (1120px) atau 'wide' (1280px, untuk anatomi 3D & beranda) */
+  width?: 'default' | 'wide';
+}
+const { title, description = SITE_TAGLINE, noindex = false, width = 'default' } = Astro.props;
+const pageTitle = title === SITE_NAME ? `${SITE_NAME}: ${SITE_TAGLINE}` : `${title} | ${SITE_NAME}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const container = width === 'wide' ? 'max-w-[1280px]' : 'max-w-[1120px]';
+
+const nav = [
+  { href: '/atlas/', label: 'Anatomi Wajah 3D' },
+  { href: '/prosedur/', label: 'Prosedur' },
+  { href: '/teknologi/', label: 'Teknologi' },
+  { href: '/alat/', label: 'Alat' },
+  { href: '/tentang/', label: 'Tentang' },
+];
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="flex flex-col bg-bg font-sans text-ink antialiased">
+    <a
+      href="#konten"
+      class="sr-only z-50 rounded-xl bg-ink px-4 py-2 text-bg focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+    >Lewati ke konten</a>
+
+    <header class="sticky top-0 z-30 border-b border-line bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/80">
+      <div class:list={['mx-auto flex flex-wrap items-center gap-x-6 px-4 sm:px-6 md:h-16 md:flex-nowrap', container]}>
+        <a href="/" class="flex h-14 items-center no-underline md:h-auto" aria-label={`${SITE_NAME}, beranda`}><Logo /></a>
+        <nav
+          aria-label="Navigasi utama"
+          class="-mx-4 w-[calc(100%+2rem)] overflow-x-auto px-3 pb-2 [scrollbar-width:none] md:mx-0 md:ml-auto md:w-auto md:overflow-visible md:p-0 [&::-webkit-scrollbar]:hidden"
+        >
+          <ul class="flex items-center gap-1 text-[0.9375rem] font-medium">
+            {nav.map((n) => {
+              const active = path.startsWith(n.href);
+              return (
+                <li>
+                  <a
+                    href={n.href}
+                    aria-current={active ? 'page' : undefined}
+                    class:list={[
+                      'block whitespace-nowrap rounded-xl px-3 py-2 no-underline transition-colors duration-200',
+                      active ? 'bg-brand-soft text-brand-ink' : 'text-muted hover:bg-surface hover:text-ink',
+                    ]}
+                  >{n.label}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="konten" class:list={['mx-auto w-full flex-1 px-4 pb-20 pt-8 sm:px-6 sm:pt-10', container]} data-pagefind-body>
+      <slot />
+    </main>
+
+    <footer class="border-t border-line bg-surface">
+      <div class:list={['mx-auto grid gap-8 px-4 py-10 text-sm sm:px-6 md:grid-cols-[1.4fr_1fr]', container]}>
+        <div class="max-w-[46ch] space-y-3">
+          <Logo size="sm" />
+          <p class="text-muted">
+            Materi edukasi umum untuk tenaga medis. Bukan panduan tindakan untuk pasien tertentu dan tidak
+            menggantikan penilaian klinis dokter.
+          </p>
+        </div>
+        <div class="space-y-3 md:justify-self-end">
+          <ul class="flex flex-wrap gap-x-5 gap-y-2 font-medium">
+            <li><a href="/tentang/" class="no-underline hover:underline">Tentang</a></li>
+            <li><a href="/privasi/" class="no-underline hover:underline">Privasi</a></li>
+            <li><a href="/kredit/" class="no-underline hover:underline">Kredit &amp; lisensi</a></li>
+            <li><a href={REPO_URL} rel="noopener" class="no-underline hover:underline">Kode sumber</a></li>
+          </ul>
+          <p class="text-muted">Kode MIT. Konten dan model 3D CC BY-SA 4.0.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

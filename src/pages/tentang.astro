@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { INTENDED_USE, REPO_URL } from '../lib/site';
+
+const notDone = [
+  'Tidak menerima atau menyimpan data pasien, termasuk foto, scan, usia, maupun kondisi.',
+  'Tidak memberi rekomendasi, dosis, titik injeksi, atau parameter perawatan untuk pasien tertentu.',
+  'Tidak memberi skor risiko, prediksi hasil, atau panduan darurat yang kritis waktu.',
+  'Tidak memiliki akun pengguna, cookie pelacak, atau analitik pihak ketiga.',
+];
+---
+<Base title="Tentang">
+  <h1 class="page-title">Tentang Dermabook.id</h1>
+
+  <section class="mt-8 rounded-2xl bg-brand-soft p-6 sm:p-8" aria-labelledby="tujuan-h">
+    <h2 id="tujuan-h" class="flex items-center gap-2 text-sm font-semibold text-brand-ink">
+      <Icon name="target" size={18} /> Tujuan penggunaan
+    </h2>
+    <p class="mt-3 max-w-[70ch] text-lg leading-relaxed text-ink">{INTENDED_USE}</p>
+  </section>
+
+  <div class="mt-14 grid gap-12 md:grid-cols-2">
+    <section aria-labelledby="tidak-h">
+      <h2 id="tidak-h" class="text-xl font-bold tracking-tight">Yang tidak dilakukan aplikasi ini</h2>
+      <ul class="mt-5 space-y-4">
+        {notDone.map((t) => (
+          <li class="flex gap-3">
+            <Icon name="prohibit" size={20} class="mt-0.5 shrink-0 text-muted" />
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="validasi-h">
+      <h2 id="validasi-h" class="text-xl font-bold tracking-tight">Bagaimana konten divalidasi</h2>
+      <ul class="mt-5 space-y-4">
+        <li class="flex gap-3">
+          <Icon name="seal-check" size={20} class="mt-0.5 shrink-0 text-brand" />
+          <span>Setiap halaman wajib bersumber. Situs tidak bisa dibangun jika ada konten tanpa referensi.</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon name="arrows-clockwise" size={20} class="mt-0.5 shrink-0 text-brand" />
+          <span>Setiap PMID dicek otomatis ke PubMed, dan setiap nomor 510(k) ke openFDA, pada setiap perubahan.</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon name="tag" size={20} class="mt-0.5 shrink-0 text-brand" />
+          <span>
+            Status setiap halaman ditampilkan apa adanya: <strong>Draf</strong> (bersumber literatur, belum ditinjau
+            dokter), <strong>Ditinjau komunitas</strong>, atau <strong>Ditinjau dokter</strong>.
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <Icon name="pencil-ruler" size={20} class="mt-0.5 shrink-0 text-brand" />
+          <span>Model 3D yang dibuat sendiri diberi label "Ilustrasi skematik".</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-line pt-10" aria-labelledby="kontribusi-h">
+    <div class="max-w-[60ch]">
+      <h2 id="kontribusi-h" class="text-xl font-bold tracking-tight">Berkontribusi</h2>
+      <p class="mt-2 text-muted">
+        Dermabook.id adalah proyek open-source. Tenaga medis bisa melaporkan kesalahan atau mengusulkan perbaikan, dan
+        seluruh riwayat perubahan konten bersifat terbuka.
+      </p>
+    </div>
+    <a href={REPO_URL} rel="noopener" class="btn btn-secondary"><Icon name="github-logo" size={18} /> Repositori GitHub</a>
+  </section>
+</Base>

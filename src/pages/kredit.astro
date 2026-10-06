@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Kredit & lisensi">
+  <h1 class="page-title">Kredit &amp; lisensi</h1>
+
+  <dl class="mt-8 grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-3">
+    <div class="bg-surface p-5">
+      <dt class="text-sm font-medium text-muted">Kode sumber</dt>
+      <dd class="mt-1 text-lg font-bold">MIT License</dd>
+    </div>
+    <div class="bg-surface p-5">
+      <dt class="text-sm font-medium text-muted">Teks konten</dt>
+      <dd class="mt-1 text-lg font-bold">CC BY-SA 4.0</dd>
+    </div>
+    <div class="bg-surface p-5">
+      <dt class="text-sm font-medium text-muted">Model 3D</dt>
+      <dd class="mt-1 text-lg font-bold">CC BY-SA 4.0</dd>
+      <dd class="text-sm text-muted">turunan dari model di bawah</dd>
+    </div>
+  </dl>
+
+  <article class="prose-content mt-4">
+    <h2>Model anatomi 3D</h2>
+    <ul>
+      <li>
+        "BodyParts3D, The Database Center for Life Science, CC-BY-SA 2.1 Japan"
+        (<a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" rel="noopener">sumber</a>)
+      </li>
+      <li>
+        "Z-Anatomy, The libre 3D atlas of anatomy, CC-BY-SA 4.0"
+        (<a href="https://github.com/Z-Anatomy/Models-of-human-anatomy" rel="noopener">sumber</a>)
+      </li>
+      <li>"Cranial Nerves and Foramina, by University of Dundee, CAHID, CC-BY 4.0" (diadaptasi di Z-Anatomy)</li>
+    </ul>
+    <p>
+      Dermabook.id memodifikasi model tersebut (pemotongan area kepala-leher, penyederhanaan mesh, dan penambahan
+      struktur skematik). Model hasil modifikasi dirilis dengan lisensi CC BY-SA 4.0. Gambar di beranda dirender dari
+      model yang sama.
+    </p>
+
+    <h2>Data perangkat</h2>
+    <p>
+      Data perangkat bersumber dari database 510(k) U.S. Food and Drug Administration melalui
+      <a href="https://open.fda.gov/" rel="noopener">openFDA</a>. openFDA tidak dimaksudkan untuk pengambilan keputusan
+      klinis, dan Dermabook.id tidak berafiliasi dengan FDA.
+    </p>
+
+    <h2>Literatur</h2>
+    <p>
+      Metadata referensi diambil dari PubMed (National Library of Medicine). Teks di Dermabook.id ditulis ulang dan
+      dirujuk ke sumbernya, bukan disalin.
+    </p>
+
+    <h2>Huruf dan ikon</h2>
+    <p>
+      Huruf Plus Jakarta Sans (SIL Open Font License 1.1) dan ikon Phosphor Icons (MIT License), keduanya disajikan
+      langsung dari server Dermabook.id.
+    </p>
+
+    <h2>Merek dagang</h2>
+    <p>
+      Semua nama produk dan merek dagang adalah milik pemiliknya masing-masing dan disebut hanya untuk identifikasi.
+      Dermabook.id tidak menampilkan foto produk tanpa izin.
+    </p>
+  </article>
+</Base>

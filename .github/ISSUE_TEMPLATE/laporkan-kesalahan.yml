@@ -1,0 +1,41 @@
+name: Laporkan kesalahan konten
+description: Laporkan informasi yang keliru, kurang tepat, atau sumber yang tidak sesuai.
+title: "[Koreksi] "
+labels: ["koreksi-konten"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Terima kasih sudah membantu menjaga akurasi Dermabook.id.
+        **Jangan cantumkan data pasien apa pun** (nama, foto, rekam medis).
+  - type: input
+    id: halaman
+    attributes:
+      label: Halaman
+      description: URL halaman yang ingin dikoreksi.
+    validations:
+      required: true
+  - type: textarea
+    id: kesalahan
+    attributes:
+      label: Apa yang keliru?
+      description: Kutip bagian yang keliru dan jelaskan koreksinya.
+    validations:
+      required: true
+  - type: textarea
+    id: sumber
+    attributes:
+      label: Sumber pendukung
+      description: PMID, DOI, guideline, atau dokumen resmi yang mendukung koreksi.
+    validations:
+      required: true
+  - type: dropdown
+    id: peran
+    attributes:
+      label: Latar belakang Anda (opsional)
+      options:
+        - Dokter
+        - Dokter spesialis
+        - Mahasiswa kedokteran
+        - Tenaga medis lain
+        - Lainnya

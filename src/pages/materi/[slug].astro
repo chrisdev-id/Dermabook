@@ -1,0 +1,62 @@
+---
+// Materi pasien: halaman ringan untuk dibaca di ponsel (via QR) atau dicetak.
+import Base from '../../layouts/Base.astro';
+import PatientInfo from '../../components/PatientInfo.astro';
+import Icon from '../../components/Icon.astro';
+import QuickFacts from '../../components/QuickFacts.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const procedures = await getCollection('procedures');
+  return procedures.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const today = formatDate(new Date());
+---
+<Base title={`Materi pasien: ${d.title}`} description={d.summary}>
+  <article class="materi mx-auto max-w-3xl">
+    <p class="text-sm font-semibold text-brand-ink">Materi edukasi untuk pasien</p>
+    <h1 class="page-title mt-2">{d.title}</h1>
+    <p class="lede mt-3">{d.summary}</p>
+    {d.quick_facts && <div class="mt-8"><QuickFacts facts={d.quick_facts} /></div>}
+
+    {d.patient ? (
+      <div class="mt-8"><PatientInfo patient={d.patient} heading="Yang perlu Anda ketahui" /></div>
+    ) : (
+      <ol class="mt-8 divide-y divide-line border-y border-line">
+        {d.scenes.map((s, i) => (
+          <li class="grid grid-cols-[2.5rem_1fr] gap-x-4 py-5">
+            <span class="tabular text-xl font-bold text-brand">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h2 class="font-bold">{s.title}</h2>
+              <p class="mt-1 text-muted">{s.narration}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    <p class="mt-8 flex gap-3 rounded-2xl bg-surface p-5 text-sm text-muted">
+      <Icon name="info" size={20} class="mt-0.5 shrink-0 text-brand" />
+      <span>
+        Materi ini bersifat edukasi umum dan disusun dari literatur ilmiah. Materi ini tidak menggantikan konsultasi dan
+        penjelasan langsung dari dokter Anda, yang akan menyesuaikannya dengan kondisi Anda.
+      </span>
+    </p>
+
+    <div class="no-print mt-8 flex flex-wrap gap-3">
+      <button type="button" class="btn btn-secondary" data-print><Icon name="printer" size={18} /> Cetak atau simpan PDF</button>
+      <a href={`/prosedur/${entry.id}/`} class="btn btn-quiet">Penjelasan lengkap dan sumber</a>
+    </div>
+    <p class="print-only mt-6 hidden text-xs text-muted">
+      Dicetak dari Dermabook.id ({Astro.url.pathname}) pada {today}. Status konten: draf, bersumber literatur.
+    </p>
+  </article>
+</Base>
+
+<script>
+  document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+</script>

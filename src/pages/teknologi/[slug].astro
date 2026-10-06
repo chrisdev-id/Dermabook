@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageMeta from '../../components/PageMeta.astro';
+import ReferenceList from '../../components/ReferenceList.astro';
+import Icon from '../../components/Icon.astro';
+import SkinDepth from '../../components/SkinDepth.astro';
+import { getCollection, render } from 'astro:content';
+import { concernLabel, energyLabel, formatNm } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('tech-categories');
+  return categories.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const devices = (await getCollection('devices'))
+  .filter((dev) => dev.data.categories.some((c) => c.id === entry.id))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+<Base title={d.name} description={d.short}>
+  <a href="/teknologi/" class="back-link"><Icon name="arrow-left" size={16} /> Semua teknologi</a>
+  <h1 class="page-title mt-4">{d.name}</h1>
+  <p class="lede mt-3">{d.short}</p>
+  <PageMeta status={d.status} reviewers={d.reviewers} filePath={entry.filePath} title={d.name} />
+
+  <div class="mt-10 grid gap-8 md:grid-cols-[1.3fr_1fr]">
+    <dl class="grid content-start gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div><dt class="text-sm font-medium text-muted">Jenis energi</dt><dd class="mt-1 font-semibold">{energyLabel[d.energy]}</dd></div>
+      {d.wavelengths_nm.length > 0 && (
+        <div><dt class="text-sm font-medium text-muted">Panjang gelombang</dt><dd class="tabular mt-1 font-semibold">{d.wavelengths_nm.map(formatNm).join(' / ')} nm</dd></div>
+      )}
+      <div class="sm:col-span-2"><dt class="text-sm font-medium text-muted">Sasaran</dt><dd class="mt-1">{d.target}</dd></div>
+      <div class="sm:col-span-2">
+        <dt class="text-sm font-medium text-muted">Biasa dipakai untuk</dt>
+        <dd class="mt-2 flex flex-wrap gap-1.5">{d.concerns.map((c) => <span class="chip">{concernLabel[c]}</span>)}</dd>
+      </div>
+    </dl>
+
+    <SkinDepth depths={d.depths} />
+  </div>
+
+  <article class="prose-content mt-12">
+    <Content />
+  </article>
+
+  {devices.length > 0 && (
+    <section class="mt-12" aria-labelledby="alat-h">
+      <h2 id="alat-h" class="text-lg font-bold">Contoh alat di katalog</h2>
+      <ul class="mt-3 flex flex-wrap gap-2 text-sm">
+        {devices.map((dev) => (
+          <li><a href={`/alat/${dev.id}/`} class="btn btn-quiet btn-sm">{dev.data.name}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <ReferenceList refs={d.refs} />
+</Base>

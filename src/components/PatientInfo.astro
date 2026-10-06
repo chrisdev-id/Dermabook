@@ -1,0 +1,31 @@
+---
+// Materi pasien (bahasa awam) untuk sebuah prosedur.
+import Icon from './Icon.astro';
+interface Props {
+  patient: { what: string; how: string; recovery: string[]; warning_signs: string[]; expectations: string };
+  heading?: string;
+}
+const { patient, heading = 'Penjelasan untuk pasien' } = Astro.props;
+---
+<section class="patient-info panel p-6 sm:p-8" aria-labelledby="patient-h">
+  <h2 id="patient-h" class="flex items-center gap-2 text-xl font-bold">
+    <Icon name="chats-circle" size={24} class="text-brand" /> {heading}
+  </h2>
+  <dl class="mt-6 grid gap-6 md:grid-cols-2">
+    <div><dt class="font-semibold">Apa itu?</dt><dd class="mt-1 text-muted">{patient.what}</dd></div>
+    <div><dt class="font-semibold">Bagaimana prosedurnya?</dt><dd class="mt-1 text-muted">{patient.how}</dd></div>
+    <div>
+      <dt class="font-semibold">Setelah tindakan</dt>
+      <dd class="mt-1">
+        <ul class="list-disc space-y-1 pl-5 text-muted marker:text-brand">{patient.recovery.map((x) => <li set:html={x.replace(/\*(.+?)\*/g, '<em>$1</em>')} />)}</ul>
+      </dd>
+    </div>
+    <div><dt class="font-semibold">Hasil yang bisa diharapkan</dt><dd class="mt-1 text-muted">{patient.expectations}</dd></div>
+  </dl>
+  <div class="mt-6 rounded-xl border-l-4 border-danger bg-danger-soft p-4 sm:p-5">
+    <p class="flex items-start gap-2 font-semibold text-danger">
+      <Icon name="warning-circle" size={20} weight="bold" class="mt-0.5 shrink-0" /> Segera hubungi dokter Anda bila mengalami:
+    </p>
+    <ul class="mt-2 list-disc space-y-1 pl-5 text-ink marker:text-danger">{patient.warning_signs.map((x) => <li>{x}</li>)}</ul>
+  </div>
+</section>

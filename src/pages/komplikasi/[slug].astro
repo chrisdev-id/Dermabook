@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageMeta from '../../components/PageMeta.astro';
+import ReferenceList from '../../components/ReferenceList.astro';
+import ClinicalGate from '../../components/ClinicalGate.astro';
+import Icon from '../../components/Icon.astro';
+import RiskBadge from '../../components/RiskBadge.astro';
+import { getEntries, getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('complications');
+  return items.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const procedures = await getEntries(d.related_procedures);
+const structures = await getEntries(d.structures);
+---
+<Base title={d.title} description={d.summary}>
+  <a href="/prosedur/#komplikasi" class="back-link"><Icon name="arrow-left" size={16} /> Prosedur & komplikasi</a>
+  <p class="mt-5"><RiskBadge serious={d.severity === 'serius'} /></p>
+  <h1 class="page-title mt-3">{d.title}</h1>
+  <p class="lede mt-3">{d.summary}</p>
+  <PageMeta status={d.status} reviewers={d.reviewers} filePath={entry.filePath} title={d.title} />
+
+  {d.patient_signs.length > 0 && (
+    <section class="mt-8 max-w-[70ch] rounded-2xl border-l-4 border-danger bg-danger-soft p-5 sm:p-6" aria-labelledby="tanda-h">
+      <h2 id="tanda-h" class="flex items-start gap-2 font-bold text-danger">
+        <Icon name="warning-circle" size={20} weight="bold" class="mt-0.5 shrink-0" /> Untuk pasien: segera hubungi dokter bila mengalami
+      </h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 marker:text-danger">{d.patient_signs.map((s) => <li>{s}</li>)}</ul>
+    </section>
+  )}
+
+  <ClinicalGate>
+    <article class="prose-content mt-4">
+      <Content />
+    </article>
+    {(procedures.length > 0 || structures.length > 0) && (
+      <section class="mt-12" aria-labelledby="terkait-h">
+        <h2 id="terkait-h" class="text-lg font-bold">Terkait</h2>
+        <ul class="mt-3 flex flex-wrap gap-2 text-sm">
+          {procedures.map((p) => (
+            <li><a href={`/prosedur/${p.id}/`} class="btn btn-secondary btn-sm"><Icon name="syringe" size={14} /> {p.data.title}</a></li>
+          ))}
+          {structures.map((s) => (
+            <li><a href={`/atlas/struktur/${s.id}/`} class="btn btn-quiet btn-sm">{s.data.name_id}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </ClinicalGate>
+
+  <ReferenceList refs={d.refs} />
+</Base>

@@ -1,0 +1,71 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { LAYERS } from '../../../lib/viewer/layers';
+import { relevanceKeys, relevanceLabel } from '../../../lib/taxonomy';
+
+const structures = (await getCollection('structures')).sort((a, b) => a.data.name_id.localeCompare(b.data.name_id));
+const groups = LAYERS.map((l) => ({ layer: l, items: structures.filter((s) => s.data.layer === l.key) })).filter(
+  (g) => g.items.length > 0,
+);
+---
+<Base title="Daftar struktur anatomi" description="Daftar struktur anatomi wajah di Dermabook.id beserta kaitannya dengan tindakan estetika.">
+  <a href="/atlas/" class="back-link"><Icon name="arrow-left" size={16} /> Anatomi Wajah 3D</a>
+  <div class="mt-4 flex flex-wrap items-end justify-between gap-6">
+    <div>
+      <h1 class="page-title">Daftar struktur anatomi</h1>
+      <p class="mt-2 max-w-[62ch] text-muted">
+        {structures.length} struktur sudah punya penjelasan lengkap dengan sumber. Struktur lain di model 3D tetap bisa
+        diklik untuk melihat namanya.
+      </p>
+    </div>
+    <form class="no-print" id="filter" aria-label="Filter struktur">
+      <label class="flex flex-col gap-1.5 text-sm">
+        <span class="font-medium text-muted">Terkait tindakan</span>
+        <select name="rel" class="min-w-56 rounded-xl border border-line bg-bg px-3 py-2.5 font-medium">
+          <option value="">Semua tindakan</option>
+          {relevanceKeys.map((k) => <option value={k}>{relevanceLabel[k]}</option>)}
+        </select>
+      </label>
+    </form>
+  </div>
+
+  {groups.map((g) => (
+    <section class="mt-10" data-group>
+      <h2 class="flex items-center gap-2.5 text-lg font-bold">
+        <span class="inline-block size-3 rounded-[4px]" style={`background:${g.layer.color}`} aria-hidden="true"></span>
+        {g.layer.label}
+        <span class="tabular text-sm font-medium text-muted" data-count>{g.items.length}</span>
+      </h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {g.items.map((s) => (
+          <li data-rel={s.data.relevance.join(' ')}>
+            <a href={`/atlas/struktur/${s.id}/`} class="tile-link panel h-full p-5 hover:bg-surface-2">
+              <span class="font-semibold text-ink">{s.data.name_id}</span>
+              <span class="block text-xs italic text-muted">{s.data.name_latin}</span>
+              <span class="mt-2 block text-sm text-muted">{s.data.summary}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>
+
+<script>
+  const select = document.querySelector<HTMLSelectElement>('#filter select')!;
+  select.addEventListener('change', () => {
+    const v = select.value;
+    document.querySelectorAll<HTMLElement>('[data-group]').forEach((g) => {
+      let shown = 0;
+      g.querySelectorAll<HTMLLIElement>('li[data-rel]').forEach((li) => {
+        const ok = !v || li.dataset.rel!.split(' ').includes(v);
+        li.hidden = !ok;
+        if (ok) shown++;
+      });
+      g.hidden = shown === 0;
+      g.querySelector('[data-count]')!.textContent = String(shown);
+    });
+  });
+</script>

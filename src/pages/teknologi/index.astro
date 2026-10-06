@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { energyLabel, formatNm } from '../../lib/site';
+
+const categories = (await getCollection('tech-categories')).sort((a, b) => a.data.order - b.data.order);
+const devices = await getCollection('devices');
+const countFor = (id: string) => devices.filter((d) => d.data.categories.some((c) => c.id === id)).length;
+
+const energyIcon: Record<string, string> = {
+  laser: 'crosshair',
+  cahaya: 'sun',
+  radiofrekuensi: 'wave-sine',
+  ultrasound: 'waveform',
+  dingin: 'snowflake',
+};
+const groups = Object.keys(energyLabel)
+  .map((energy) => ({ energy, items: categories.filter((c) => c.data.energy === energy) }))
+  .filter((g) => g.items.length > 0);
+---
+<Base title="Teknologi estetika" description="Cara kerja teknologi perangkat estetika: laser, cahaya, radiofrekuensi, ultrasound, dan pendinginan.">
+  <h1 class="page-title">Teknologi estetika</h1>
+  <p class="lede mt-3">
+    Pahami teknologinya dulu, baru mereknya. Setiap kategori menjelaskan apa sasarannya, seberapa dalam energinya
+    bekerja, dan masalah kulit apa yang biasa ditangani.
+  </p>
+
+  <nav class="no-print mt-8 flex flex-wrap gap-2" aria-label="Jenis energi">
+    {groups.map((g) => (
+      <a href={`#${g.energy}`} class="btn btn-quiet btn-sm">
+        <Icon name={energyIcon[g.energy]} size={16} /> {energyLabel[g.energy]}
+        <span class="tabular text-muted">{g.items.length}</span>
+      </a>
+    ))}
+  </nav>
+
+  {groups.map((g) => (
+    <section class="mt-12 scroll-mt-24" id={g.energy} aria-labelledby={`${g.energy}-h`}>
+      <h2 id={`${g.energy}-h`} class="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+        <Icon name={energyIcon[g.energy]} size={24} class="text-brand" /> {energyLabel[g.energy]}
+      </h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {g.items.map((c) => (
+          <li>
+            <a href={`/teknologi/${c.id}/`} class="tile-link panel group flex h-full flex-col p-5 hover:bg-surface-2">
+              <span class="font-bold text-ink">{c.data.name}</span>
+              <span class="mt-2 flex-1 text-sm text-muted">{c.data.short}</span>
+              <span class="tabular mt-4 flex flex-wrap gap-1.5">
+                {c.data.wavelengths_nm.length > 0 && <span class="chip">{c.data.wavelengths_nm.map(formatNm).join(' / ')} nm</span>}
+                <span class="chip">{countFor(c.id)} alat</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>

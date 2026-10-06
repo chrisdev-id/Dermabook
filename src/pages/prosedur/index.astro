@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import RiskBadge from '../../components/RiskBadge.astro';
+import { getCollection } from 'astro:content';
+import { procedureCategories, procedureCategoryLabel } from '../../lib/taxonomy';
+
+const procedures = (await getCollection('procedures')).sort((a, b) => a.data.order - b.data.order);
+const complications = (await getCollection('complications')).sort((a, b) => a.data.order - b.data.order);
+
+const categoryIcon: Record<string, string> = {
+  injeksi: 'syringe',
+  benang: 'needle',
+  'perawatan-kulit': 'drop',
+  konsep: 'lightbulb',
+};
+const groups = procedureCategories
+  .map((c) => ({ key: c, items: procedures.filter((p) => p.data.category === c) }))
+  .filter((g) => g.items.length > 0);
+---
+<Base title="Prosedur & konsep" description="Materi edukasi prosedur estetika (Botox, filler, biostimulator, thread lift, peeling, microneedling) dan konsep penuaan wajah, dengan mode presentasi untuk pasien.">
+  <h1 class="page-title">Prosedur & konsep</h1>
+  <p class="lede mt-3">
+    Setiap materi berisi penjelasan untuk pasien, fakta singkat, dan pembahasan klinis bersumber untuk tenaga medis.
+    Sebagian dilengkapi mode presentasi 3D.
+  </p>
+
+  {groups.map((g) => (
+    <section class="mt-12" aria-labelledby={`kat-${g.key}`}>
+      <h2 id={`kat-${g.key}`} class="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+        <Icon name={categoryIcon[g.key]} size={24} class="text-brand" /> {procedureCategoryLabel[g.key]}
+      </h2>
+      <ul class="mt-4 grid gap-4 md:grid-cols-2">
+        {g.items.map((p) => (
+          <li>
+            <a href={`/prosedur/${p.id}/`} class="tile-link panel group flex h-full flex-col p-6 hover:bg-surface-2">
+              <span class="text-xl font-bold tracking-tight text-ink">{p.data.title}</span>
+              {p.data.aka.length > 0 && <span class="mt-1 text-sm text-muted">{p.data.aka.join(', ')}</span>}
+              <span class="mt-2 flex-1 text-sm text-muted">{p.data.summary}</span>
+              <span class="mt-5 flex items-center gap-1.5 text-sm font-medium text-muted">
+                {p.data.scenes.length > 0 ? (
+                  <><Icon name="presentation" size={16} /> {p.data.scenes.length} langkah presentasi</>
+                ) : (
+                  <><Icon name="article" size={16} /> Materi bacaan</>
+                )}
+                <Icon name="arrow-right" size={16} class="ml-auto text-brand-ink transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <section class="mt-20" aria-labelledby="komplikasi">
+    <div class="grid gap-x-10 gap-y-3 md:grid-cols-[1fr_1.6fr]">
+      <h2 id="komplikasi" class="text-2xl font-bold tracking-tight">Edukasi komplikasi</h2>
+      <p class="text-muted">
+        Penyebab, tanda yang perlu dikenali, dan prinsip penanganannya. Halaman ini tidak memuat dosis atau protokol;
+        untuk itu, gunakan pedoman lengkap di daftar referensi.
+      </p>
+    </div>
+    <ul class="mt-8 divide-y divide-line border-y border-line">
+      {complications.map((c) => (
+        <li>
+          <a href={`/komplikasi/${c.id}/`} class="group grid gap-x-6 gap-y-2 py-5 text-ink no-underline md:grid-cols-[10rem_1fr_auto] md:items-start">
+            <span><RiskBadge serious={c.data.severity === 'serius'} /></span>
+            <span>
+              <span class="block font-bold group-hover:text-brand-ink">{c.data.title}</span>
+              <span class="mt-1 block max-w-[70ch] text-sm text-muted">{c.data.summary}</span>
+            </span>
+            <Icon name="arrow-right" size={18} class="mt-1 hidden text-muted transition-transform duration-200 group-hover:translate-x-1 group-hover:text-brand-ink md:block" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

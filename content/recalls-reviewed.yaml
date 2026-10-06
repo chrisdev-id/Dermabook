@@ -1,0 +1,5 @@
+# Recall FDA yang sudah ditinjau (lihat scripts/check-recalls.ts).
+# Tambahkan entri setelah halaman alat terkait diperbarui bila perlu.
+# - res_event_number: "12345"
+#   note: "Ringkasan tindak lanjut"
+[]

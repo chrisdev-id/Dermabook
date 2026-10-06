@@ -1,0 +1,24 @@
+---
+// Baris status + tautan transparansi di atas setiap halaman konten.
+import StatusBadge from './StatusBadge.astro';
+import Icon from './Icon.astro';
+import { reportIssueUrl, historyUrl } from '../lib/site';
+
+interface Props {
+  status: 'draft' | 'community' | 'doctor';
+  reviewers?: { name: string; role?: string; date: Date }[];
+  filePath?: string;
+  title: string;
+}
+const { status, reviewers, filePath, title } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<div class="no-print mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+  <StatusBadge status={status} reviewers={reviewers} />
+  <a href={reportIssueUrl(pageUrl, title)} rel="noopener" class="inline-flex items-center gap-1.5 text-muted no-underline hover:text-brand-ink">
+    <Icon name="flag" size={16} /> Laporkan kesalahan
+  </a>
+  <a href={historyUrl(filePath)} rel="noopener" class="inline-flex items-center gap-1.5 text-muted no-underline hover:text-brand-ink">
+    <Icon name="clock-counter-clockwise" size={16} /> Riwayat perubahan
+  </a>
+</div>

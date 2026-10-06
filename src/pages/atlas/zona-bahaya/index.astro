@@ -1,0 +1,33 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import RiskBadge from '../../../components/RiskBadge.astro';
+import { getCollection } from 'astro:content';
+
+const zones = (await getCollection('danger-zones')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Zona bahaya vaskular" description="Area wajah dengan risiko komplikasi vaskular lebih tinggi pada tindakan injeksi, beserta anatominya.">
+  <a href="/atlas/" class="back-link"><Icon name="arrow-left" size={16} /> Anatomi Wajah 3D</a>
+  <h1 class="page-title mt-4">Zona bahaya vaskular</h1>
+  <p class="lede mt-3">
+    Enam area yang menurut literatur paling berisiko saat injeksi filler: glabela dan alis, pelipis, hidung,
+    infraorbital, lipatan nasolabial, dan sekitar mulut. Pembagian zona mengikuti Scheuer dkk. (2017).
+  </p>
+  <ol class="mt-10 divide-y divide-line border-y border-line">
+    {zones.map((z, i) => (
+      <li>
+        <a href={`/atlas/zona-bahaya/${z.id}/`} class="group grid items-start gap-x-6 gap-y-2 py-6 text-ink no-underline sm:grid-cols-[3rem_1fr_auto]">
+          <span class="tabular text-2xl font-bold text-brand">{String(i + 1).padStart(2, '0')}</span>
+          <span>
+            <span class="flex flex-wrap items-center gap-3">
+              <span class="text-lg font-bold group-hover:text-brand-ink">{z.data.name}</span>
+              <RiskBadge level={z.data.risk_level} />
+            </span>
+            <span class="mt-1 block max-w-[70ch] text-muted">{z.data.summary}</span>
+          </span>
+          <Icon name="arrow-right" size={20} class="mt-1 hidden text-muted transition-transform duration-200 group-hover:translate-x-1 group-hover:text-brand-ink sm:block" />
+        </a>
+      </li>
+    ))}
+  </ol>
+</Base>

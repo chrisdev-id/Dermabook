@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+import { statusLabel, formatDate } from '../lib/site';
+
+interface Props {
+  status: 'draft' | 'community' | 'doctor';
+  reviewers?: { name: string; role?: string; date: Date }[];
+}
+const { status, reviewers = [] } = Astro.props;
+const label = statusLabel[status];
+const look = {
+  draft: { icon: 'file-dashed', cls: 'bg-[color-mix(in_oklab,var(--warning)_12%,var(--bg))] text-warning' },
+  community: { icon: 'users-three', cls: 'bg-brand-soft text-brand-ink' },
+  doctor: { icon: 'seal-check', cls: 'bg-[color-mix(in_oklab,#15803d_12%,var(--bg))] text-[#15803d] dark:text-[#4ade80]' },
+}[status];
+---
+<span class:list={['inline-flex flex-wrap items-center gap-1.5 rounded-md px-2 py-1 text-xs font-semibold', look.cls]}>
+  <Icon name={look.icon} size={14} weight="bold" />
+  <span>{label.text}</span>
+  {reviewers.length > 0 && (
+    <span class="font-normal opacity-85">
+      ({reviewers.map((r) => `${r.name}${r.role ? `, ${r.role}` : ''}, ${formatDate(r.date)}`).join('; ')})
+    </span>
+  )}
+</span>
