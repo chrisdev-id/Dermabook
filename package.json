@@ -17,7 +17,9 @@
     "verify:devices": "node scripts/verify-devices.ts",
     "check:recalls": "node scripts/check-recalls.ts",
     "models:build": "node scripts/build-models.ts",
-    "verify:meshes": "node scripts/verify-meshes.ts"
+    "verify:meshes": "node scripts/verify-meshes.ts",
+    "check:links": "node scripts/check-links.ts",
+    "check:quality": "npx --yes @lhci/cli@0.15.1 autorun"
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
@@ -31,10 +33,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@gltf-transform/cli": "^4.5.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/qrcode": "^1.5.6",
     "@types/three": "^0.186.0",
     "pagefind": "^1.5.2",
+    "satori": "^0.47.1",
     "typescript": "^6.0.3"
   }
 }

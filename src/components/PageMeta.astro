@@ -13,7 +13,7 @@ interface Props {
 const { status, reviewers, filePath, title } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
-<div class="no-print mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+<div data-pagefind-ignore class="no-print mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
   <StatusBadge status={status} reviewers={reviewers} />
   <a href={reportIssueUrl(pageUrl, title)} rel="noopener" class="inline-flex items-center gap-1.5 text-muted no-underline hover:text-brand-ink">
     <Icon name="flag" size={16} /> Laporkan kesalahan

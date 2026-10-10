@@ -3,10 +3,13 @@
 Terima kasih ingin membantu. Dermabook.id adalah materi edukasi untuk dokter dan tenaga medis, sehingga setiap
 perubahan harus **bersumber** dan tetap berada di **batas aplikasi edukasi**.
 
+Dengan berpartisipasi, Anda setuju mengikuti [kode etik](CODE_OF_CONDUCT.md) proyek ini.
+
 ## Cara paling mudah: laporkan kesalahan
 
 Setiap halaman punya tombol **"Laporkan kesalahan"** yang membuka formulir issue GitHub dengan alamat halaman sudah
-terisi. Sertakan sumber yang mendukung koreksi Anda bila ada.
+terisi. Sertakan sumber yang mendukung koreksi Anda bila ada. Untuk mengusulkan topik baru, pakai template
+issue **Usulan konten baru**.
 
 ## Mengubah atau menambah konten
 
@@ -20,7 +23,9 @@ terisi. Sertakan sumber yang mendukung koreksi Anda bila ada.
    ```bash
    npm run build
    ```
-4. Buka *pull request* dan isi checklist di templatenya. CI akan memeriksa skema, sumber, nomor 510(k), dan mesh 3D.
+4. Buka *pull request* dan isi checklist di templatenya. CI akan memeriksa skema, sumber, nomor 510(k), mesh 3D,
+   tautan internal, serta aksesibilitas dan performa halaman (Lighthouse). Vercel juga membuat alamat preview
+   untuk melihat hasilnya sebelum digabung.
 
 Aturan sumber, hierarki, dan cara menulis ada di [docs/SOURCES.md](docs/SOURCES.md). Gambaran teknis ada di
 [docs/ARSITEKTUR.md](docs/ARSITEKTUR.md).

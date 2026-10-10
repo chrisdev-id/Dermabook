@@ -38,3 +38,6 @@ jobs:
       # Build sekaligus memvalidasi skema konten (referensi wajib, status, dll.)
       - name: Build situs
         run: npm run build
+
+      - name: Cek tautan internal
+        run: npm run check:links

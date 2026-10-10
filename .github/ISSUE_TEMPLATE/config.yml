@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Panduan berkontribusi
+    url: https://github.com/chrisdev-id/Dermabook/blob/main/CONTRIBUTING.md
+    about: Aturan sumber, batas aplikasi edukasi (R1 sampai R9), dan cara mengajukan perubahan.
+  - name: Buka situs Dermabook.id
+    url: https://dermabook.vercel.app/
+    about: Setiap halaman punya tombol "Laporkan kesalahan" yang mengisi alamat halaman secara otomatis.

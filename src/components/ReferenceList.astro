@@ -16,7 +16,7 @@ const items = await Promise.all(
 );
 ---
 {items.length > 0 && (
-  <section class="mt-12 border-t border-line pt-8" aria-labelledby="ref-heading">
+  <section data-pagefind-ignore class="mt-12 border-t border-line pt-8" aria-labelledby="ref-heading">
     <h2 id="ref-heading" class="text-lg font-bold">{title}</h2>
     <ol class="mt-4 space-y-3 text-sm text-muted [counter-reset:ref]">
       {items.map((r) => (

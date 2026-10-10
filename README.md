@@ -32,6 +32,8 @@ Buka http://localhost:4321.
 | `npm run verify:references` | Cek semua PMID di `content/references.yaml` ke PubMed |
 | `npm run verify:devices` | Cek semua nomor 510(k) di `content/devices/` ke openFDA |
 | `npm run check:recalls` | Cari recall FDA baru untuk alat di katalog |
+| `npm run check:links` | Cek semua tautan internal di hasil build (`dist/`) |
+| `npm run check:quality` | Lighthouse CI: aksesibilitas, performa, praktik terbaik, SEO (butuh Chrome) |
 
 ## Struktur
 
@@ -46,13 +48,14 @@ src/
   pages/ layouts/ components/
 scripts/            Skrip verifikasi PubMed/openFDA
 public/             Aset statis (model 3D, decoder Draco, gambar)
-.github/            CI: validasi PR dan main, cek recall mingguan
+.github/            CI: validasi PR dan main, kualitas halaman (Lighthouse), cek recall mingguan
 vercel.json         Konfigurasi hosting Vercel (header keamanan, cache)
 ```
 
 ## Berkontribusi
 
-Panduan lengkap ada di [CONTRIBUTING.md](CONTRIBUTING.md). Ringkasnya:
+Panduan lengkap ada di [CONTRIBUTING.md](CONTRIBUTING.md), dan semua kontributor diharapkan mengikuti
+[kode etik](CODE_OF_CONDUCT.md). Ringkasnya:
 
 1. Laporkan kesalahan lewat tombol **"Laporkan kesalahan"** di setiap halaman, atau buat issue.
 2. Untuk mengubah konten, edit file di `content/`, tambahkan sumber ke `content/references.yaml`, lalu buka *pull request*.

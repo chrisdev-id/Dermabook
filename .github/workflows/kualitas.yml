@@ -1,0 +1,31 @@
+# Lighthouse CI: aksesibilitas (wajib >= 0,95), performa, praktik terbaik, dan SEO
+# untuk beberapa halaman perwakilan. Konfigurasi di lighthouserc.json.
+name: Kualitas halaman
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kualitas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build situs
+        run: npm run build
+      - name: Lighthouse CI
+        run: npm run check:quality

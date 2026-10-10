@@ -12,6 +12,9 @@ assets-src/cache/
 # Catatan perencanaan & riset lokal (tidak ikut repo)
 catatan-internal/
 *.docx
+# Laporan Lighthouse lokal
+.lighthouseci/
+.lighthouseci-out/
 # Pengaturan editor/alat lokal
 .claude/
 .vscode/

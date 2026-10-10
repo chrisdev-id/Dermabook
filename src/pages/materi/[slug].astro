@@ -16,7 +16,7 @@ const { entry } = Astro.props;
 const d = entry.data;
 const today = formatDate(new Date());
 ---
-<Base title={`Materi pasien: ${d.title}`} description={d.summary}>
+<Base title={`Materi pasien: ${d.title}`} description={d.summary} search={false}>
   <article class="materi mx-auto max-w-3xl">
     <p class="text-sm font-semibold text-brand-ink">Materi edukasi untuk pasien</p>
     <h1 class="page-title mt-2">{d.title}</h1>

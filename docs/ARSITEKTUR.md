@@ -24,7 +24,8 @@ atau cron di server. Validasi dan cek recall berjalan di GitHub Actions; build d
 | Generator situs | [Astro](https://astro.build) dengan *content collections* dan skema Zod |
 | 3D | Three.js (`GLTFLoader`, `DRACOLoader`, `OrbitControls`, `DecalGeometry`) |
 | Tampilan | Tailwind CSS 4, huruf Plus Jakarta Sans, ikon Phosphor |
-| Pencarian | Pagefind (indeks statis dibuat saat build) |
+| Pencarian | Pagefind (indeks statis dibuat saat build), halaman `/cari/` dengan filter jenis halaman |
+| Gambar pratinjau | `satori` + `@resvg/resvg-js`: satu PNG 1200x630 per halaman, dibuat saat build di `/og/` |
 | QR | `qrcode`, dibuat di browser |
 | Skrip verifikasi | TypeScript di `scripts/`, dijalankan langsung oleh Node 24 |
 | Model 3D | Blender (skrip Python di `assets-src/scripts/`) dan `gltf-transform` untuk kompresi Draco |
@@ -48,7 +49,7 @@ src/
 scripts/                 Verifikasi PubMed/openFDA/mesh dan pembangun model
 assets-src/              Skrip ekspor Blender + manifest mesh (file .blend tidak disimpan di repo)
 public/                  Aset statis: model GLB, decoder Draco, gambar
-.github/                 CI: validasi PR dan main, cek recall mingguan
+.github/                 CI: validasi PR dan main, kualitas halaman (Lighthouse), cek recall mingguan
 vercel.json              Konfigurasi Vercel: build, header keamanan (CSP), cache
 docs/                    Dokumentasi
 ```
@@ -92,6 +93,8 @@ Situs di-hosting di Vercel sebagai situs statis:
 - `vercel.json` mengatur perintah build (`npm run build`, termasuk indeks Pagefind), folder hasil (`dist`),
   garis miring di akhir URL, header keamanan (CSP dan lainnya; HSTS dipasang otomatis oleh Vercel), tipe file GLB, serta cache aset.
 - Halaman 404 memakai `dist/404.html` yang dibuat Astro.
+- Alamat situs (URL kanonik dan gambar pratinjau) mengikuti domain produksi Vercel lewat
+  `VERCEL_PROJECT_PRODUCTION_URL`, atau bisa ditimpa dengan variabel `SITE_URL`.
 
 Validasi isi (PubMed, openFDA, mesh 3D) tidak dijalankan di Vercel, melainkan di GitHub Actions. Karena itu
 perubahan konten sebaiknya selalu lewat *pull request* agar dicek sebelum masuk ke `main`. Secret opsional di

@@ -44,3 +44,6 @@ jobs:
 
       - name: Build situs
         run: npm run build
+
+      - name: Cek tautan internal
+        run: npm run check:links

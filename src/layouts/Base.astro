@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import Logo from '../components/Logo.astro';
+import Icon from '../components/Icon.astro';
+import { ogImageFor } from '../lib/og';
 import { SITE_NAME, SITE_TAGLINE, REPO_URL } from '../lib/site';
 
 interface Props {
@@ -9,8 +11,10 @@ interface Props {
   noindex?: boolean;
   /** Lebar konten: 'default' (1120px) atau 'wide' (1280px, untuk anatomi 3D & beranda) */
   width?: 'default' | 'wide';
+  /** Ikut diindeks pencarian situs (default: ya, kecuali halaman noindex) */
+  search?: boolean;
 }
-const { title, description = SITE_TAGLINE, noindex = false, width = 'default' } = Astro.props;
+const { title, description = SITE_TAGLINE, noindex = false, width = 'default', search = !noindex } = Astro.props;
 const pageTitle = title === SITE_NAME ? `${SITE_NAME}: ${SITE_TAGLINE}` : `${title} | ${SITE_NAME}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const container = width === 'wide' ? 'max-w-[1280px]' : 'max-w-[1120px]';
@@ -23,6 +27,19 @@ const nav = [
   { href: '/tentang/', label: 'Tentang' },
 ];
 const path = Astro.url.pathname;
+const ogImage = new URL(await ogImageFor(path), Astro.site).toString();
+
+// Jenis halaman untuk filter pencarian (Pagefind)
+const sections: [string, string][] = [
+  ['/atlas/struktur/', 'Struktur anatomi'],
+  ['/atlas/zona-bahaya/', 'Zona bahaya'],
+  ['/atlas/', 'Anatomi Wajah 3D'],
+  ['/prosedur/', 'Prosedur'],
+  ['/komplikasi/', 'Komplikasi'],
+  ['/teknologi/', 'Teknologi'],
+  ['/alat/', 'Alat'],
+];
+const section = sections.find(([prefix]) => path.startsWith(prefix))?.[1] ?? 'Umum';
 ---
 <!doctype html>
 <html lang="id">
@@ -40,7 +57,9 @@ const path = Astro.url.pathname;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.png', Astro.site).toString()} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
@@ -51,11 +70,21 @@ const path = Astro.url.pathname;
     >Lewati ke konten</a>
 
     <header class="sticky top-0 z-30 border-b border-line bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/80">
-      <div class:list={['mx-auto flex flex-wrap items-center gap-x-6 px-4 sm:px-6 md:h-16 md:flex-nowrap', container]}>
+      <div class:list={['mx-auto flex flex-wrap items-center gap-x-6 px-4 sm:px-6 md:h-16 md:flex-nowrap md:gap-x-2', container]}>
         <a href="/" class="flex h-14 items-center no-underline md:h-auto" aria-label={`${SITE_NAME}, beranda`}><Logo /></a>
+        <a
+          href="/cari/"
+          class:list={[
+            'ml-auto flex size-10 items-center justify-center rounded-xl no-underline transition-colors duration-200 md:order-2 md:ml-0',
+            path.startsWith('/cari/') ? 'bg-brand-soft text-brand-ink' : 'text-muted hover:bg-surface hover:text-ink',
+          ]}
+          aria-label="Cari di Dermabook.id"
+          title="Cari (tekan /)"
+          data-search-link
+        ><Icon name="magnifying-glass" size={20} /></a>
         <nav
           aria-label="Navigasi utama"
-          class="-mx-4 w-[calc(100%+2rem)] overflow-x-auto px-3 pb-2 [scrollbar-width:none] md:mx-0 md:ml-auto md:w-auto md:overflow-visible md:p-0 [&::-webkit-scrollbar]:hidden"
+          class="-mx-4 w-[calc(100%+2rem)] overflow-x-auto px-3 pb-2 [scrollbar-width:none] md:order-1 md:mx-0 md:ml-auto md:w-auto md:overflow-visible md:p-0 [&::-webkit-scrollbar]:hidden"
         >
           <ul class="flex items-center gap-1 text-[0.9375rem] font-medium">
             {nav.map((n) => {
@@ -78,7 +107,12 @@ const path = Astro.url.pathname;
       </div>
     </header>
 
-    <main id="konten" class:list={['mx-auto w-full flex-1 px-4 pb-20 pt-8 sm:px-6 sm:pt-10', container]} data-pagefind-body>
+    <main
+      id="konten"
+      class:list={['mx-auto w-full flex-1 px-4 pb-20 pt-8 sm:px-6 sm:pt-10', container]}
+      data-pagefind-body={search ? '' : undefined}
+      data-pagefind-filter={search ? `jenis:${section}` : undefined}
+    >
       <slot />
     </main>
 
@@ -102,5 +136,17 @@ const path = Astro.url.pathname;
         </div>
       </div>
     </footer>
+    <script>
+      // Tekan "/" di mana saja untuk membuka pencarian
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+        const t = e.target;
+        if (t instanceof Element && t.closest('input, textarea, select, [contenteditable]')) return;
+        e.preventDefault();
+        const box = document.querySelector<HTMLInputElement>('[data-search-input]');
+        if (box) box.focus();
+        else location.href = '/cari/';
+      });
+    </script>
   </body>
 </html>

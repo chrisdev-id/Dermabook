@@ -1,0 +1,140 @@
+---
+// Pencarian situs. Indeks dibuat Pagefind saat build (npm run build), tanpa server.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+
+const kinds = ['Prosedur', 'Komplikasi', 'Struktur anatomi', 'Zona bahaya', 'Teknologi', 'Alat'];
+---
+<Base title="Cari" description="Cari struktur anatomi, prosedur, komplikasi, teknologi, dan alat di Dermabook.id." noindex>
+  <h1 class="page-title">Cari</h1>
+
+  <form class="mt-6" role="search" data-search-form>
+    <label for="q" class="sr-only">Kata kunci</label>
+    <div class="relative max-w-2xl">
+      <Icon name="magnifying-glass" size={22} class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted" />
+      <input
+        id="q"
+        name="q"
+        type="search"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Misalnya: Botox, arteri angularis, melasma, laser picosecond"
+        class="w-full rounded-2xl border border-line bg-bg py-4 pl-12 pr-4 text-lg shadow-sm outline-none transition-shadow duration-200 focus:border-brand focus:shadow-[0_0_0_4px_color-mix(in_oklab,var(--brand)_18%,transparent)]"
+        data-search-input
+      />
+    </div>
+    <fieldset class="mt-4 flex flex-wrap gap-2" data-search-filters>
+      <legend class="sr-only">Saring menurut jenis halaman</legend>
+      <button type="button" class="btn btn-quiet btn-sm aria-pressed:bg-brand-soft aria-pressed:text-brand-ink aria-pressed:shadow-none" aria-pressed="true" data-kind="">Semua</button>
+      {kinds.map((k) => (
+        <button type="button" class="btn btn-quiet btn-sm aria-pressed:bg-brand-soft aria-pressed:text-brand-ink aria-pressed:shadow-none" aria-pressed="false" data-kind={k}>{k}</button>
+      ))}
+    </fieldset>
+  </form>
+
+  <p class="mt-8 text-sm text-muted" aria-live="polite" data-search-status>Ketik minimal 2 huruf untuk mencari.</p>
+  <ol class="mt-4 divide-y divide-line" data-search-results></ol>
+
+  <template data-result-template>
+    <li>
+      <a class="group block py-5 text-ink no-underline">
+        <span class="chip" data-r-kind></span>
+        <span class="mt-2 block text-lg font-bold group-hover:text-brand-ink" data-r-title></span>
+        <span class="mt-1 block max-w-[75ch] text-sm text-muted [&_mark]:rounded-[3px] [&_mark]:bg-brand-soft [&_mark]:px-0.5 [&_mark]:text-ink" data-r-excerpt></span>
+      </a>
+    </li>
+  </template>
+</Base>
+
+<!-- Dimuat di luar bundler: pagefind.js baru ada setelah build, dan Vite tidak boleh memprosesnya -->
+<script is:inline>
+  window.__loadPagefind = () => import('/pagefind/pagefind.js');
+</script>
+
+<script>
+  type PagefindResult = { url: string; excerpt: string; meta: { title?: string }; filters: Record<string, string[]> };
+  type Pagefind = {
+    init: () => Promise<void>;
+    debouncedSearch: (
+      q: string,
+      opts?: { filters?: Record<string, string> },
+      ms?: number,
+    ) => Promise<{ results: { data: () => Promise<PagefindResult> }[] } | null>;
+  };
+
+  const input = document.querySelector<HTMLInputElement>('[data-search-input]')!;
+  const status = document.querySelector<HTMLElement>('[data-search-status]')!;
+  const list = document.querySelector<HTMLOListElement>('[data-search-results]')!;
+  const tpl = document.querySelector<HTMLTemplateElement>('[data-result-template]')!;
+  const kindButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-kind]'));
+  let kind = '';
+  let pagefind: Pagefind | null = null;
+
+  async function load(): Promise<Pagefind | null> {
+    if (pagefind) return pagefind;
+    try {
+      // Dibuat saat build; tidak ada di mode `npm run dev`
+      pagefind = (await (window as unknown as { __loadPagefind: () => Promise<Pagefind> }).__loadPagefind()) as Pagefind;
+      await pagefind.init();
+      return pagefind;
+    } catch {
+      status.textContent = 'Indeks pencarian belum tersedia. Jalankan npm run build lalu npm run preview untuk mencoba pencarian.';
+      return null;
+    }
+  }
+
+  async function run() {
+    const q = input.value.trim();
+    const params = new URLSearchParams(location.search);
+    q ? params.set('q', q) : params.delete('q');
+    kind ? params.set('jenis', kind) : params.delete('jenis');
+    history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
+
+    if (q.length < 2) {
+      list.replaceChildren();
+      status.textContent = 'Ketik minimal 2 huruf untuk mencari.';
+      return;
+    }
+    const pf = await load();
+    if (!pf) return;
+    const search = await pf.debouncedSearch(q, kind ? { filters: { jenis: kind } } : {}, 250);
+    if (!search) return; // tergantikan oleh ketikan berikutnya
+    const data = await Promise.all(search.results.slice(0, 20).map((r) => r.data()));
+    list.replaceChildren(
+      ...data.map((r) => {
+        const node = tpl.content.cloneNode(true) as DocumentFragment;
+        node.querySelector('a')!.href = r.url;
+        node.querySelector('[data-r-kind]')!.textContent = r.filters.jenis?.[0] ?? 'Halaman';
+        node.querySelector('[data-r-title]')!.textContent = r.meta.title ?? r.url;
+        node.querySelector('[data-r-excerpt]')!.innerHTML = r.excerpt; // cuplikan dari konten situs sendiri, dengan <mark>
+        return node;
+      }),
+    );
+    const total = search.results.length;
+    status.textContent = total === 0
+      ? `Tidak ada hasil untuk "${q}". Coba kata lain atau istilah Latin/Inggrisnya.`
+      : `${total} hasil untuk "${q}"${total > 20 ? ', menampilkan 20 teratas' : ''}.`;
+  }
+
+  input.addEventListener('input', run);
+  document.querySelector('[data-search-form]')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    run();
+  });
+  kindButtons.forEach((b) =>
+    b.addEventListener('click', () => {
+      kind = b.dataset.kind ?? '';
+      kindButtons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      run();
+    }),
+  );
+
+  // Muat dari URL (?q=...&jenis=...)
+  const params = new URLSearchParams(location.search);
+  input.value = params.get('q') ?? '';
+  kind = params.get('jenis') ?? '';
+  kindButtons.forEach((x) => x.setAttribute('aria-pressed', String((x.dataset.kind ?? '') === kind)));
+  input.focus();
+  if (input.value) run();
+  else load();
+</script>

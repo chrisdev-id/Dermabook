@@ -24,26 +24,26 @@ const categories = await Promise.all(d.categories.map((c) => getEntry(c)));
   <PageMeta status={d.status} reviewers={d.reviewers} filePath={entry.filePath} title={d.name} />
 
   <div class="mt-10 grid gap-8 md:grid-cols-[1.5fr_1fr]">
-    <dl class="space-y-6">
-      <div><dt class="text-sm font-medium text-muted">Teknologi (sesuai dokumen 510(k))</dt><dd class="mt-1 font-semibold">{d.technology}</dd></div>
-      <div>
-        <dt class="text-sm font-medium text-muted">Kategori</dt>
-        <dd class="mt-2 flex flex-wrap gap-2">
-          {categories.map((c) => c && <a href={`/teknologi/${c.id}/`} class="btn btn-secondary btn-sm">{c.data.name}</a>)}
-        </dd>
-      </div>
-      {d.concerns.length > 0 && (
+    <div class="space-y-6">
+      <dl class="space-y-6">
+        <div><dt class="text-sm font-medium text-muted">Teknologi (sesuai dokumen 510(k))</dt><dd class="mt-1 font-semibold">{d.technology}</dd></div>
         <div>
-          <dt class="text-sm font-medium text-muted">Masalah kulit di indikasi resmi</dt>
-          <dd class="mt-2 flex flex-wrap gap-1.5">{d.concerns.map((c) => <span class="chip">{concernLabel[c]}</span>)}</dd>
+          <dt class="text-sm font-medium text-muted">Kategori</dt>
+          <dd class="mt-2 flex flex-wrap gap-2">
+            {categories.map((c) => c && <a href={`/teknologi/${c.id}/`} class="btn btn-secondary btn-sm">{c.data.name}</a>)}
+          </dd>
         </div>
-      )}
-      <div>
-        <a href={d.official_url} rel="noopener" class="btn btn-quiet">
-          Situs resmi produsen <Icon name="arrow-square-out" size={16} />
-        </a>
-      </div>
-    </dl>
+        {d.concerns.length > 0 && (
+          <div>
+            <dt class="text-sm font-medium text-muted">Masalah kulit di indikasi resmi</dt>
+            <dd class="mt-2 flex flex-wrap gap-1.5">{d.concerns.map((c) => <span class="chip">{concernLabel[c]}</span>)}</dd>
+          </div>
+        )}
+      </dl>
+      <a href={d.official_url} rel="noopener" class="btn btn-quiet">
+        Situs resmi produsen <Icon name="arrow-square-out" size={16} />
+      </a>
+    </div>
 
     <aside class="panel p-5 text-sm" aria-labelledby="reg-heading">
       <h2 id="reg-heading" class="flex items-center gap-2 font-bold"><Icon name="seal-check" size={20} class="text-brand" /> Status regulasi</h2>

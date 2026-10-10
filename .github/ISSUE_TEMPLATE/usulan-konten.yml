@@ -1,0 +1,68 @@
+name: Usulan konten baru
+description: Usulkan prosedur, struktur anatomi, masalah kulit, teknologi, atau alat yang belum ada.
+title: "[Usulan] "
+labels: ["usulan-konten"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Terima kasih sudah membantu melengkapi Dermabook.id.
+        Setiap konten wajib bersumber dan tetap berada di batas aplikasi edukasi (lihat [CONTRIBUTING.md](https://github.com/chrisdev-id/Dermabook/blob/main/CONTRIBUTING.md)).
+        **Jangan cantumkan data pasien apa pun** (nama, foto, rekam medis).
+  - type: dropdown
+    id: jenis
+    attributes:
+      label: Jenis konten
+      options:
+        - Prosedur
+        - Komplikasi
+        - Struktur anatomi
+        - Masalah kulit
+        - Teknologi perangkat
+        - Alat (katalog)
+        - Lainnya
+    validations:
+      required: true
+  - type: input
+    id: judul
+    attributes:
+      label: Judul atau nama
+      description: Misalnya "Skin booster", "Nervus facialis cabang temporal", atau nama alat dan produsennya.
+    validations:
+      required: true
+  - type: textarea
+    id: alasan
+    attributes:
+      label: Mengapa penting?
+      description: Untuk siapa konten ini berguna dan apa yang perlu dijelaskan.
+    validations:
+      required: true
+  - type: textarea
+    id: sumber
+    attributes:
+      label: Sumber
+      description: |
+        PMID, DOI, guideline, atau dokumen resmi. Untuk alat, sertakan nomor FDA 510(k) dan tautan situs resmi produsen.
+      placeholder: "PMID 34224576\nDOI 10.1097/..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: batas
+    attributes:
+      label: Batas aplikasi edukasi
+      description: Centang untuk menegaskan bahwa usulan ini tidak memuat hal berikut.
+      options:
+        - label: Tidak memuat dosis, unit, volume, atau setelan energi alat (R3, R9)
+          required: true
+        - label: Tidak memuat saran untuk pasien tertentu, skor risiko, atau prediksi hasil (R2, R5)
+          required: true
+        - label: Tidak memuat harga, testimoni, klaim superlatif, atau promosi klinik dan merek (R8)
+          required: true
+  - type: dropdown
+    id: bantu
+    attributes:
+      label: Apakah Anda bersedia ikut menulis atau meninjau?
+      options:
+        - Ya, saya bisa menulis draf
+        - Ya, saya bisa meninjau
+        - Belum bisa, hanya mengusulkan

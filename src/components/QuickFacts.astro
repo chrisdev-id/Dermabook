@@ -28,12 +28,11 @@ const shown = rows.filter((r) => facts[r.key]);
     <h2 id="fakta-h" class="text-xl font-bold">Fakta singkat</h2>
     <dl class="mt-4 grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-2">
       {shown.map((r) => (
-        <div class="flex gap-3 bg-bg p-4 sm:p-5">
-          <Icon name={r.icon} size={22} class="mt-0.5 shrink-0 text-brand" />
-          <div>
-            <dt class="text-sm font-semibold text-muted">{r.label}</dt>
-            <dd class="mt-1">{facts[r.key]}</dd>
-          </div>
+        <div class="bg-bg p-4 sm:p-5">
+          <dt class="flex items-center gap-2.5 text-sm font-semibold text-muted">
+            <Icon name={r.icon} size={22} class="shrink-0 text-brand" /> {r.label}
+          </dt>
+          <dd class="mt-1.5 pl-[2.0625rem]">{facts[r.key]}</dd>
         </div>
       ))}
     </dl>

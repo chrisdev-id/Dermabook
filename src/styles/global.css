@@ -29,6 +29,7 @@
   --color-brand-soft: var(--brand-soft);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
   --color-on-accent: var(--on-accent);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
@@ -59,10 +60,11 @@
     --brand-deep: #1e3a8a;
     --accent: #f97316;
     --accent-hover: #ea670c;
+    --accent-ink: #c2410c; /* oranye untuk teks kecil (5,2:1 di atas putih) */
     --on-accent: #0f172a;
     --danger: #b42318;
     --danger-soft: #fef3f2;
-    --warning: #b45309;
+    --warning: #92400e;
     --shadow-tint: 15 23 42;
 
     /* Nama variabel lama yang masih dipakai di beberapa halaman */
@@ -85,6 +87,7 @@
       --brand-deep: #c9d7fb;
       --accent: #fb8a3c;
       --accent-hover: #fca468;
+      --accent-ink: #fb8a3c;
       --on-accent: #0b1220;
       --danger: #f97066;
       --danger-soft: #2a1414;

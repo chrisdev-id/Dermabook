@@ -2,8 +2,14 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
+// Alamat situs untuk URL kanonik dan gambar pratinjau. Di Vercel mengikuti domain produksi
+// (dermabook.vercel.app, atau domain kustom setelah dipasang); bisa ditimpa dengan SITE_URL.
+const site =
+  process.env.SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://dermabook.vercel.app');
+
 export default defineConfig({
-  site: 'https://dermabook.id',
+  site,
   trailingSlash: 'ignore',
   build: { format: 'directory' },
   vite: {
